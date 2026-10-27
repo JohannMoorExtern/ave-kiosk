@@ -1,0 +1,12 @@
+{
+  "name": "ave-kiosk",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Touch-Kiosk für die lokale Audi Visualization Engine (AVE)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "kiosk": "electron . --kiosk",
+    "test": "node --test tests/*.test.js"
+  }
+}

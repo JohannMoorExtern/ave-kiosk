@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Touch</title>
+<style>
+  /* Unsichtbare Fläche über der AVE, unter den Walzen. touch-action: none – sonst bricht
+     Chromium eine Wischgeste als Scrollen ab (pointercancel) und die Drehung reißt ab. */
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden;
+               touch-action: none; user-select: none; -webkit-user-select: none; }
+  /* Interaktions-Spots (Türen, Klappe): Position kommt von der AVE, x/y 0…1 des Bildschirms */
+  #spots { position: fixed; inset: 0; pointer-events: none; }
+  .spot { position: absolute; transform: translate(-50%, -50%); border-radius: 50%;
+          border: 2px solid rgba(255,255,255,.9); background: rgba(0,0,0,.25); box-sizing: border-box;
+          opacity: var(--deckkraft, .55); transition: opacity .3s; animation: rein .3s ease-out; }
+  .spot::after { content: ''; position: absolute; inset: 32%; border-radius: 50%; background: #fff; }
+  .spot.offen { background: rgba(255,255,255,.85); }
+  .spot.offen::after { background: #111; }
+  /* Animation läuft: nicht antippbar, blass, folgt der Tür weich */
+  .spot.laeuft { opacity: calc(var(--deckkraft, .55) * .4); transition: opacity .3s, left .4s linear, top .4s linear; }
+  @keyframes rein { from { opacity: 0; } }
+</style>
+</head>
+<body>
+<div id="spots"></div>
+<script>
+// Übersetzt Touch in Maus-Befehle für die Shell (main.js), die sie an tools/maus.ps1 gibt:
+//   1 Finger ziehen → Maus gedrückt ziehen (Drehen)
+//   2 Finger spreizen/zusammenziehen → Mausrad (Zoom)
+//   kurzer Tipp ohne Bewegung → Mausklick
+// Echte Mausbewegung meldet "maus": die Shell macht die Fläche dann kurz durchlässig.
+// Fahrszene (opt.fahrt): nichts geht an die AVE – jede Berührung oder jeder Klick beendet die Szene.
+const send = (o) => console.info('KIOSK_FE ' + JSON.stringify(o));
+const opt = { schwellePx: 6, zoomSchrittPx: 40, fahrt: false };
+let fahrtGemeldet = 0;
+const finger = new Map();          // pointerId → { x, y } in Fenster-Koordinaten (DIP)
+let zustand = 'frei';              // frei | wartet | zieht | zoom
+let start = null, zoomAbstand = 0, letzteTouch = 0, offen = null, rafId = 0;
+let mausGemeldet = 0;
+
+const istTouch = (e) => e.pointerType === 'touch' || e.pointerType === 'pen';
+const punkt = (e) => ({ x: e.clientX, y: e.clientY });   // clientX: screenX ist nicht bei jeder Touch-Quelle belegt
+const abstand = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+const zweiFinger = () => { const [a, b] = [...finger.values()]; return [a, b]; };
+const mitte = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+
+// Bewegungen pro Bild bündeln, letzte Position gewinnt
+function zugSenden() { rafId = 0; if (offen) { send({ type: 'touch', cmd: 'zug', ...offen }); offen = null; } }
+function zugFlush() { if (rafId) cancelAnimationFrame(rafId); zugSenden(); }
+
+addEventListener('pointerdown', (e) => {
+  if (opt.fahrt) {                               // Touch oder Maus: Szene beenden, nicht weiterreichen
+    if (Date.now() - fahrtGemeldet > 1000) { fahrtGemeldet = Date.now(); send({ type: 'touch', cmd: 'fahrtEnde' }); }
+    return;
+  }
+  if (!istTouch(e)) return;
+  finger.set(e.pointerId, punkt(e));
+  letzteTouch = Date.now();
+  if (finger.size === 1) { zustand = 'wartet'; start = punkt(e); return; }
+  if (finger.size === 2 && (zustand === 'wartet' || zustand === 'zieht')) {
+    if (zustand === 'zieht') { zugFlush(); send({ type: 'touch', cmd: 'zugEnde' }); }
+    const [a, b] = zweiFinger();
+    zoomAbstand = abstand(a, b);
+    zustand = 'zoom';
+    spotsWeg();
+    send({ type: 'touch', cmd: 'zoomStart', ...mitte(a, b) });
+  }
+});
+
+addEventListener('pointermove', (e) => {
+  if (opt.fahrt) return;
+  if (!istTouch(e)) return mausBewegt(e);
+  if (!finger.has(e.pointerId)) return;
+  const p = punkt(e);
+  finger.set(e.pointerId, p);
+  letzteTouch = Date.now();
+  if (zustand === 'wartet' && abstand(p, start) >= opt.schwellePx) {
+    zustand = 'zieht';
+    spotsWeg();
+    send({ type: 'touch', cmd: 'zugStart', ...start });
+  }
+  if (zustand === 'zieht') { offen = p; if (!rafId) rafId = requestAnimationFrame(zugSenden); }
+  if (zustand === 'zoom' && finger.size >= 2) {
+    const [a, b] = zweiFinger();
+    let diff = abstand(a, b) - zoomAbstand;
+    while (Math.abs(diff) >= opt.zoomSchrittPx) {
+      const n = Math.sign(diff);                // auseinander = +1 (heranzoomen)
+      send({ type: 'touch', cmd: 'rad', n });
+      zoomAbstand += n * opt.zoomSchrittPx;
+      diff -= n * opt.zoomSchrittPx;
+    }
+  }
+});
+
+function fingerWeg(e, abgebrochen) {
+  if (!istTouch(e) || !finger.has(e.pointerId)) return;
+  finger.delete(e.pointerId);
+  letzteTouch = Date.now();
+  if (finger.size > 0) return;                  // Geste endet erst, wenn alle Finger weg sind
+  if (zustand === 'wartet' && !abgebrochen) {
+    const s = spotBei(start);
+    if (s) send({ type: 'touch', cmd: 'spot', id: s.id });
+    else send({ type: 'touch', cmd: 'tipp', ...start });
+  }
+  if (zustand === 'zieht') { zugFlush(); send({ type: 'touch', cmd: 'zugEnde' }); }
+  if (zustand === 'zoom') send({ type: 'touch', cmd: 'zoomEnde' });
+  if (zustand === 'zieht' || zustand === 'zoom') gesteEnde = Date.now();   // alte Positionen gelten nicht mehr
+  zustand = 'frei';
+}
+addEventListener('pointerup', (e) => {
+  if (e.pointerType === 'mouse' && !opt.fahrt) { const s = spotBei(punkt(e)); if (s) send({ type: 'touch', cmd: 'spot', id: s.id }); return; }
+  fingerWeg(e, false);
+});
+addEventListener('pointercancel', (e) => fingerWeg(e, true));
+
+// Mausbewegung melden. Ob es wirklich eine Maus war, prüft die Shell am echten Zeiger –
+// Windows meldet auch dann eine Bewegung, wenn die Fläche nur unter dem stehenden Zeiger auftaucht.
+function mausBewegt(e) {
+  if (e.pointerType !== 'mouse' || zustand !== 'frei' || Date.now() - letzteTouch < 800) return;
+  if (Date.now() - mausGemeldet < 300) return;
+  mausGemeldet = Date.now();
+  send({ type: 'touch', cmd: 'maus' });
+}
+
+// ---------- Interaktions-Spots ----------
+const spotBox = document.getElementById('spots');
+let spotDaten = [], spotTreffer = 40, gesteEnde = 0;
+function spotsWeg() { spotDaten = []; spotBox.replaceChildren(); }
+// Nur Spots, die gerade sichtbar sind – sonst tippt man ins Leere auf eine alte Position
+function spotBei(p) {
+  let best = null, bestD = spotTreffer;
+  for (const s of spotDaten) { if (s.laeuft) continue; const d = Math.hypot(s.x * innerWidth - p.x, s.y * innerHeight - p.y); if (d <= bestD) { best = s; bestD = d; } }
+  return best;
+}
+function setSpots(o) {
+  const liste = (o && o.liste) || [];
+  // Positionen von vor oder während einer Geste verwerfen
+  if (opt.fahrt || zustand === 'zieht' || zustand === 'zoom' || (liste.length && liste[0].t0 < gesteEnde)) return spotsWeg();
+  spotTreffer = o.treffer || 40;
+  spotDaten = liste;
+  const g = o.groesse || 26;
+  spotBox.style.setProperty('--deckkraft', o.deckkraft ?? .55);
+  const alt = new Map([...spotBox.children].map((el) => [el.dataset.id, el]));
+  for (const s of liste) {
+    let el = alt.get(s.id);
+    if (el) alt.delete(s.id); else { el = document.createElement('div'); el.className = 'spot'; el.dataset.id = s.id; spotBox.appendChild(el); }
+    el.style.width = el.style.height = g + 'px';
+    const ax = parseFloat(el.dataset.x), ay = parseFloat(el.dataset.y);   // Kleinstbewegungen ignorieren
+    if (s.laeuft || isNaN(ax) || Math.hypot((s.x - ax) * innerWidth, (s.y - ay) * innerHeight) > 3) {
+      el.dataset.x = s.x; el.dataset.y = s.y;
+      el.style.left = (s.x * 100) + '%'; el.style.top = (s.y * 100) + '%';
+    }
+    el.classList.toggle('offen', s.zustand !== 'Initial');
+    el.classList.toggle('laeuft', !!s.laeuft);
+  }
+  for (const el of alt.values()) el.remove();
+}
+
+// Kein Kontextmenü, kein Auswählen
+addEventListener('contextmenu', (e) => e.preventDefault());
+window.fe = { setTouch(o) {
+  const vorher = opt.fahrt;
+  Object.assign(opt, o || {});
+  if (vorher !== opt.fahrt) { finger.clear(); zustand = 'frei'; offen = null; spotsWeg(); }   // sauber neu beginnen
+}, setSpots };
+send({ type: 'ready' });
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "kiosk": false,
+  "bildschirm": 0,
+  "diagnose": true,
+  "leiste": { "seite": "links", "breite": 0.12, "transparent": true, "fokussierbar": false },
+  "ave": {
+    "url": "http://localhost:4242/events",
+    "startSession": true,
+    "clientId": "Kiosk",
+    "timeoutMs": 10000,
+    "ladeTimeoutMs": 90000,
+    "nachlaufMs": 500,
+    "loadingScreen": "Auto",
+    "modelRevision": "MP1",
+    "consumptionData": []
+  },
+  "touchAlsMaus": { "durchlaessigWaehrendZiehen": false },
+  "bild": { "auto": true, "wartenMs": 1500, "x": 0.3, "y": 0.2, "w": 0.6, "h": 0.6, "breitePx": 520 },
+  "startFahrzeug": null,
+  "beimStartLaden": true,
+  "idleTimeoutSec": 180
+}

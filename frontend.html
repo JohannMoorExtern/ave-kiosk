@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Kiosk</title>
+<style>
+  /* Kein Netz: Schrift nur lokal. Fehlt die Datei, greift system-ui. */
+  @font-face { font-family: "Archivo"; src: url("fonts/Archivo.ttf") format("truetype"); font-weight: 100 900; font-stretch: 62% 125%; }
+  :root {
+    --ink: #fff;
+    --ink-dim: rgba(255,255,255,.6);
+    --font: "Archivo", system-ui, sans-serif;
+    --glow: 0 1px 3px rgba(0,0,0,.9), 0 2px 10px rgba(0,0,0,.75), 0 0 28px rgba(0,0,0,.55);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: transparent; color: var(--ink); font-family: var(--font); }
+  body { overflow: hidden; user-select: none; -webkit-tap-highlight-color: transparent; }
+
+  /* Kein Verlauf: die Walzen sollen nahtlos über dem Fahrzeugbild liegen.
+     Lesbarkeit kommt allein über Textschatten und die Schatten an den Kreisen. */
+  .scrim { display: none; }
+
+  .label { position: fixed; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); text-shadow: var(--glow); }
+  .value { position: fixed; font-weight: 700; font-stretch: 118%; text-shadow: var(--glow); line-height: 1.1; }
+  body[data-part="models"] .label { top: 28px; left: 34px; }
+  body[data-part="models"] .value { display: none; }   /* Name steht schon an der Walze */
+  body[data-part="colors"] .label { top: 28px; right: 28px; text-align: right; }
+  body[data-part="colors"] .value { top: 22px; right: 10px; text-align: right; font-size: 15px; max-width: 96%; }
+  body[data-part="wheels"] .label { top: 28px; right: 22px; text-align: right; }
+
+  /* Bogen: Radius in Pixeln, Winkelabstand je Kachel in Grad. 0 = gerade Walze. */
+  body { --bogen-r: 0; --bogen-grad: 16; }
+  /* Radius und Winkel je Kachel. Faustregel: R * (grad im Bogenmaß) ~ Kachelhöhe (104 px),
+     sonst reißt der Bogen auseinander und es passen weniger Kacheln ins Bild.
+     Stärkere Krümmung: Radius kleiner, Winkel größer. */
+  /* --bogen-r: 0 = gerade Walze. Werte > 0 legen die Kacheln auf eine Kreisbahn. */
+  body[data-part="colors"], body[data-part="wheels"] { --bogen-r: 0; }
+
+  .zone { position: fixed; inset: 0; }
+  body[data-part="models"] .zone { top: 70px; bottom: 70px; }
+  /* Typ-Filter unter der Fahrzeugwalze: waagerechte Endlos-Walze. Nach links und rechts drehbar,
+     hinter dem letzten Typ kommt wieder der erste. Der Typ in der Mitte ist gewählt. */
+  body[data-part="models"] .zone { top: 70px; bottom: 104px; }   /* Filter sitzt unter der Walze */
+  .filter { position: fixed; bottom: 44px; left: 0; right: 0; height: 52px; z-index: 5; touch-action: none; cursor: grab;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%, #000 78%, transparent 100%);
+                    mask-image: linear-gradient(90deg, transparent 0, #000 22%, #000 78%, transparent 100%); }
+  .filter-item { position: absolute; top: 0; left: 0; height: 52px; display: flex; align-items: center; justify-content: center;
+                 font: 600 12px/1 var(--font); font-stretch: 110%; letter-spacing: .12em; text-transform: uppercase;
+                 color: #fff; text-shadow: var(--glow); white-space: nowrap; will-change: transform, opacity; pointer-events: none; }
+  .filter-item.mitte { font-weight: 800; }
+  /* Showcar-Eintrag „★ …“: gold statt weiß */
+  .filter-item[data-k="show"] { color: #e8c670; }
+  /* Showcar gewählt: Fahrzeugwalze und Hinweis ausblenden, nur die Typ-Walze bleibt */
+  body.showcar[data-part="models"] .zone, body.showcar[data-part="models"] .hint { display: none; }
+  /* Feiner Rahmen um die Mitte – wie die Auswahl an den anderen Walzen */
+  .filter-rahmen { position: fixed; bottom: 54px; left: 50%; height: 32px; width: 0; transform: translateX(-50%); z-index: 6;
+                   border-radius: 16px; box-shadow: inset 0 0 0 2px rgba(255,255,255,.95), 0 0 12px rgba(0,0,0,.35);
+                   pointer-events: none; transition: width .25s cubic-bezier(.2,.8,.2,1); }
+  body[data-part="colors"] .zone { top: 22%; bottom: 39%; }   /* Auswahl etwas oberhalb der Mitte */
+  body[data-part="wheels"] .zone { top: 28%; bottom: 37%; }   /* Auswahl liegt über dem rechten Pfeil */
+  /* Umgebungen: waagerechte Walze unten mittig */
+  body[data-part="envs"] .zone { top: 0; bottom: 18px; }
+  body[data-part="envs"] .drum { scroll-snap-type: x mandatory;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
+  body[data-part="envs"] .track { flex-direction: row; align-items: center; height: 100%; width: max-content; }   /* sonst fehlt der Innenabstand am Ende */
+  .item.item--env { width: 170px; height: 100%; }   /* .item.… : muss "all: unset" von .item schlagen */
+  .env-img { width: 112px; height: 63px; object-fit: cover; border-radius: 6px; display: block;
+             box-shadow: 0 2px 6px rgba(0,0,0,.5), 0 10px 22px rgba(0,0,0,.55); }
+  .env-name { margin-top: 4px; font-size: 11px; font-weight: 500; text-align: center; text-shadow: var(--glow);
+              max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item--env.is-selected .env-img { outline: 2px solid rgba(255,255,255,.95); outline-offset: 3px; }
+  .item--env.is-selected .env-name { font-weight: 700; }
+  .item--env.ohne-bild .env-name { font-size: 14px; padding: 8px 10px; border-radius: 4px; }
+  .item--env.ohne-bild.is-selected .env-name { outline: 2px solid rgba(255,255,255,.95); }
+  body[data-part="envs"] .busy, body[data-part="envs"] .value, body[data-part="envs"] .note { display: none; }
+  /* Türen, Kofferraum, Fahrszene: Symbole oben mittig */
+  body[data-part="actions"] .zone, body[data-part="actions"] .busy, body[data-part="actions"] .value,
+  body[data-part="actions"] .note, body[data-part="actions"] .hint { display: none; }
+  .aktionen { position: fixed; inset: 0; display: flex; gap: 22px; justify-content: center; align-items: center; }
+  .akt { all: unset; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+         background: rgba(10,14,16,.38); box-shadow: inset 0 0 0 2px rgba(255,255,255,.75), 0 6px 18px rgba(0,0,0,.45);
+         transition: background .2s, transform .15s; }
+  .akt { color: #fff; }
+  .akt.an { color: #111; }
+  .akt svg { width: 34px; height: 34px; stroke: #fff; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .akt.an { background: rgba(255,255,255,.95); }
+  .akt.an svg { stroke: #111; }
+  .akt:active { transform: scale(.94); }
+  .aktionen.busy .akt, .akt.gesperrt { opacity: .35; pointer-events: none; }
+  .akt[hidden] { display: none; }   /* "all: unset" oben hebt das hidden-Attribut sonst auf */
+  body[data-part="envs"] .hint { display: none; }   /* unten mittig kollidiert der Hinweis mit der Verbrauchsanzeige */
+
+  .drum { position: absolute; inset: 0; overflow: scroll; scrollbar-width: none; outline: none; overscroll-behavior: contain; }
+  .drum::-webkit-scrollbar { display: none; }
+  .track { display: flex; }
+  .item { all: unset; flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center;
+          scroll-snap-align: center; cursor: pointer; will-change: transform, opacity; }
+  /* Inhalt der Walzen zu den Bildschirmkanten hin versetzen, damit er die Pfeile der
+     Exhibition überdeckt. Nur verschieben, nicht bündig ausrichten - sonst wird das
+     vergrößerte Bild der Auswahl am Rand abgeschnitten. Werte bei Bedarf anpassen. */
+  body[data-part="models"] .track { transform: none; }   /* nicht an den Rand schieben, sonst wird die Auswahl abgeschnitten */
+  body[data-part="colors"] .track, body[data-part="wheels"] .track { transform: translateX(8px); }
+
+  body[data-part="models"] .drum, body[data-part="colors"] .drum, body[data-part="wheels"] .drum { scroll-snap-type: y mandatory;
+    -webkit-mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent);
+            mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent); }
+  body[data-part="colors"] .drum, body[data-part="wheels"] .drum {
+    -webkit-mask-image: linear-gradient(transparent, #000 7%, #000 93%, transparent);
+            mask-image: linear-gradient(transparent, #000 7%, #000 93%, transparent); }
+  body[data-part="models"] .track { flex-direction: column; align-items: center; }
+  body[data-part="colors"] .track, body[data-part="wheels"] .track { flex-direction: column; align-items: center; }
+
+  /* Fahrzeuge: freigestellt, ohne Karte */
+  .item--model { height: 100px; width: 100%; }
+  /* height fest, width automatisch: der Element-Rahmen liegt dann exakt am Bild an
+     und nicht als durchgehende Linie quer über die Walze. */
+  .model-img { height: 65px; width: auto; max-width: 94%; object-fit: contain; display: block; border-radius: 6px;
+               margin: 0 auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)) drop-shadow(0 18px 26px rgba(0,0,0,.6)); }
+  .model-name { margin-top: 2px; font-size: 12px; font-weight: 500; font-stretch: 106%; text-align: center;
+                text-shadow: var(--glow); padding: 0 8px; }
+  .item--model.is-selected .model-name { font-weight: 700; font-size: 13px; }
+  .item--model.is-selected .model-img { outline: 2px solid rgba(255,255,255,.95); outline-offset: 4px; }
+  /* Fahrzeug ohne Bild: nur der Name, Rahmen um den Namen */
+  .item--model.ohne-bild { height: 100px; }
+  .item--model.ohne-bild .model-name { font-size: 20px; padding: 10px 16px; border-radius: 4px; }
+  .item--model.ohne-bild.is-selected .model-name { font-size: 22px; outline: 3px solid rgba(255,255,255,.95); }
+  .item--model.ohne-bild.is-selected.is-pending .model-name { outline-color: rgba(233,241,242,.42); }
+
+  .item--color { height: 92px; width: 100%; }
+  /* Serie | Exclusive: Umschalter unten, auf Höhe des Typ-Filters links – im Stil des Typ-Filters links.
+     Antippen oder seitlich wischen wechselt; das Wort gleitet heraus, das andere herein. */
+  .farbmodus { position: fixed; bottom: 32px;   /* Wortmitte 70px über dem Rand = Höhe des Typ-Filters links */ left: 0; right: 0; height: 58px; z-index: 5; touch-action: none; cursor: pointer; overflow: hidden; }
+  .farbmodus-rahmen { position: absolute; top: 4px; left: 50%; transform: translateX(-50%); height: 32px; border-radius: 16px;
+                      box-shadow: inset 0 0 0 2px rgba(255,255,255,.95), 0 0 12px rgba(0,0,0,.35); transition: width .3s cubic-bezier(.2,.8,.2,1); }
+  .farbmodus-wort { position: absolute; top: 4px; left: 0; right: 0; height: 32px; display: flex; align-items: center; justify-content: center;
+                    font: 800 11px/1 var(--font); font-stretch: 110%; letter-spacing: .12em; text-transform: uppercase; color: #fff;
+                    text-shadow: var(--glow); white-space: nowrap; transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s; }
+  .farbmodus-punkte { position: absolute; top: 44px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; }
+  .farbmodus-punkte i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.35); box-shadow: 0 1px 3px rgba(0,0,0,.5); transition: background .3s, transform .3s; }
+  .farbmodus-punkte i.an { background: #fff; transform: scale(1.2); }
+  .swatch { width: 54px; height: 54px; border-radius: 50%; background: #55656b center/cover no-repeat;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.45), 0 2px 6px rgba(0,0,0,.45), 0 10px 22px rgba(0,0,0,.55); }
+  .item--color.is-selected .swatch { width: 78px; height: 78px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.4), 0 0 0 4px rgba(255,255,255,.95), 0 8px 20px rgba(0,0,0,.55); }
+
+  .item--wheel { height: 92px; width: 100%; }
+  /* Das Felgenbild kommt aus dem DCC meist auf hellem Grund. Es wird kreisförmig
+     beschnitten und leicht abgedunkelt eingeblendet, damit kein greller Kreis entsteht. */
+  .wheel-img { width: 54px; height: 54px; border-radius: 50%; background: transparent center/cover no-repeat;
+               box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 2px 6px rgba(0,0,0,.45), 0 10px 22px rgba(0,0,0,.55);
+               filter: brightness(.92) contrast(1.05); }
+  .item--wheel.is-selected .wheel-img { width: 78px; height: 78px;
+               box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 0 0 4px rgba(255,255,255,.95), 0 8px 20px rgba(0,0,0,.55); }
+  .wheel-svg { width: 54px; height: 54px; }
+  .item--wheel.is-selected .wheel-svg { width: 78px; height: 78px; }
+
+  .note { position: fixed; font-size: 14px; color: var(--ink-dim); text-shadow: var(--glow); }
+
+  /* Zeigt an, dass im Hintergrund noch etwas läuft (DCC lädt, Optionen werden gelesen) */
+  .busy { position: fixed; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+          color: var(--ink); text-shadow: var(--glow); animation: pulse 1.4s ease-in-out infinite; }
+  body[data-part="models"] .busy { top: 88px; left: 34px; }
+  body[data-part="colors"] .busy, body[data-part="wheels"] .busy { display: none; }
+  .busy { max-width: 80%; }
+  body.busy .hint { display: none; }
+
+  /* Solange gewartet wird, nimmt keine Walze Eingaben an. Sonst läuft ein zweiter
+     Auftrag in den ersten hinein, bevor der DCC ihn verarbeitet hat. */
+  body.busy .zone { pointer-events: none; }
+  body.busy .drum { filter: grayscale(.75) brightness(.62); transition: filter .2s; }
+  body.busy .value { opacity: .45; }
+  .drum { transition: filter .25s; }
+  body[data-part="colors"] .note { top: 22px; right: 10px; text-align: right; max-width: 96%; font-size: 12px; }
+  body[data-part="wheels"] .note { bottom: 22px; right: 10px; text-align: right; max-width: 96%; font-size: 12px; }
+
+  /* Mittiges Element ist gewählt, aber noch nicht übernommen: gestrichelter Ring + Hinweis */
+  .hint { position: fixed; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+          color: var(--ink); text-shadow: var(--glow); opacity: 0; transition: opacity .2s; pointer-events: none; }
+  body.pending .hint { opacity: .9; animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .45; } }
+  body[data-part="models"] .hint { bottom: 16px; left: 0; right: 0; text-align: center; font-size: 11px; padding: 0 10px; }
+  body[data-part="colors"] .hint { bottom: 16px; left: 0; right: 0; text-align: center; font-size: 10px; padding: 0 6px; }
+  body[data-part="wheels"] .hint { bottom: 22px; right: 10px; text-align: right; font-size: 11px; }
+
+  /* Noch nicht übernommen: grauer Rahmen. Übernommen: weißer Rahmen (Regeln oben). */
+  .item--model.is-selected.is-pending .model-img { outline-color: rgba(233,241,242,.42); }
+  .item--color.is-selected.is-pending .swatch,
+  .item--wheel.is-selected.is-pending .wheel-img {
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.4), 0 0 0 4px rgba(233,241,242,.42), 0 8px 20px rgba(0,0,0,.55); }
+  .item--wheel.is-selected.is-pending .wheel-svg { outline: 3px solid rgba(233,241,242,.42); outline-offset: 4px; border-radius: 50%; }
+
+  @media (prefers-reduced-motion: reduce) { body.pending .hint { animation: none; } }
+</style>
+</head>
+<body>
+<div class="scrim"></div>
+<span class="label" id="label"></span>
+<span class="value" id="value"></span>
+<div class="filter" id="filter" hidden></div><div class="filter-rahmen" id="filterRahmen" hidden></div>
+<div class="farbmodus" id="farbmodus" hidden><div class="farbmodus-rahmen" id="fmRahmen"></div><div class="farbmodus-punkte"><i></i><i></i></div></div>
+<div class="zone"><div class="drum" tabindex="0" id="drum"></div></div>
+<p class="note" id="note" hidden></p>
+<span class="busy" id="busy" hidden>wird geladen …</span>
+<span class="hint" id="hint">Nochmal tippen zum Übernehmen</span>
+
+<script>
+const part = new URLSearchParams(location.search).get('part') || 'models';
+document.body.dataset.part = part;
+const horizontal = part === 'envs';   // Umgebungen laufen waagerecht, der Rest senkrecht
+const $ = (id) => document.getElementById(id);
+const findeIndex = (list, code) => list.findIndex((o) => o.code === code);
+const aktiverIndex = (list) => list.findIndex((o) => o.checked);   // -1 = DCC markiert nichts
+const send = (o) => console.info('KIOSK_FE ' + JSON.stringify(o));
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+const cssUrl = (u) => `url("${String(u).replace(/"/g, '%22')}")`;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lastInput = 0;
+let busyTimer = null;
+for (const ev of ['pointerdown', 'touchstart', 'wheel', 'keydown'])
+  addEventListener(ev, () => { lastInput = Date.now(); }, { passive: true, capture: true });
+$('label').remove();
+// Diagnose: jede Berührung mit Ziel und Walzenzustand an die Shell melden (steht in kiosk.log)
+window.__diag = {};
+for (const ev of ['pointerdown', 'pointerup', 'click']) addEventListener(ev, (e) => {
+  const b = e.target && e.target.closest && e.target.closest('.item');
+  const i = b ? [...b.parentNode.children].indexOf(b) : -1;
+  send({ type: 'diag', ev, typ: e.pointerType || '', x: Math.round(e.clientX), y: Math.round(e.clientY),
+         ziel: (e.target && e.target.className) || e.target.nodeName, item: i,
+         busy: document.body.classList.contains('busy'), ...window.__diag });
+}, { capture: true, passive: true });
+
+function rim(r, spokes) {
+  let s = `<circle r="${r}" fill="#10171a"/><circle r="${r*0.72}" fill="#c6ced2"/>`;
+  for (let i = 0; i < spokes; i++) {
+    const a = (i / spokes) * Math.PI * 2 - Math.PI / 2;
+    s += `<line x2="${(Math.cos(a)*r*0.68).toFixed(1)}" y2="${(Math.sin(a)*r*0.68).toFixed(1)}" stroke="#4c5a60" stroke-width="${(r*0.09).toFixed(1)}" stroke-linecap="round"/>`;
+  }
+  return s + `<circle r="${r*0.16}" fill="#2b3438"/>`;
+}
+
+function Drum(el, items, render, cls, onConfirm, startIdx) {
+  el.innerHTML = '<div class="track"></div>';
+  const track = el.firstChild;
+  items.forEach((it, i) => {
+    const b = document.createElement('button');
+    b.className = 'item ' + cls + ((cls === 'item--model' || cls === 'item--env') && !it.img ? ' ohne-bild' : ''); b.type = 'button';
+    b.setAttribute('aria-label', it.name || '');
+    b.innerHTML = render(it, i);
+    // Auslösen auf pointerup statt click: Bei den Fenstern rechts verschluckt Windows beim
+    // Mausklick pointerdown und click (Fenster ohne Fokus) – belegt per Diagnose am Gerät.
+    // Bei Touch-Wischen kommt pointercancel statt pointerup, ein Wisch löst also nichts aus.
+    b.addEventListener('pointerup', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      diag();
+      if (document.body.classList.contains('busy')) return;   // läuft noch etwas: nichts annehmen
+      merken();
+      if (i !== current) return go(i);        // erst mittig holen
+      if (i === committed) return;            // steht schon so im DCC
+      committed = i;
+      zeigeHinweis();
+      onConfirm(items[i], i);                 // zweiter Tipp = übernehmen
+    });
+    track.appendChild(b);
+  });
+  const nodes = [...track.children];
+  const diag = () => { window.__diag = { current, committed }; };
+  let current = -1, committed = -1, tScroll, tCommit, silent = true, touched = false, lastTouch = 0, tot = false;
+  const merken = () => { touched = true; lastTouch = Date.now(); lastInput = lastTouch; };
+  for (const ev of ['pointerdown','touchstart','wheel','keydown']) el.addEventListener(ev, merken, { passive: true });
+
+  const size = (n) => horizontal ? n.offsetWidth : n.offsetHeight;
+  const pos = (n) => horizontal ? n.offsetLeft + n.offsetWidth/2 : n.offsetTop + n.offsetHeight/2;
+  const viewport = () => horizontal ? el.clientWidth : el.clientHeight;
+  const at = () => horizontal ? el.scrollLeft : el.scrollTop;
+
+  function pad() {
+    if (!nodes[0]) return;
+    const p = Math.max(0, (viewport() - size(nodes[0])) / 2);
+    track.style[horizontal ? 'paddingInline' : 'paddingBlock'] = p + 'px';
+  }
+  function go(i, smooth = true) {
+    if (tot) return;
+    const n = nodes[Math.max(0, Math.min(nodes.length-1, i))];
+    if (!n || !n.isConnected) return;      // Knoten nicht mehr im Dokument
+    el.scrollTo({ [horizontal ? 'left' : 'top']: pos(n) - viewport()/2, behavior: smooth && !reduceMotion ? 'smooth' : 'auto' });
+  }
+  // Radius und Winkelabstand des Bogens. 0 = gerade Walze wie bisher.
+  const bogenR = Number(getComputedStyle(document.body).getPropertyValue('--bogen-r')) || 0;
+  const bogenGrad = Number(getComputedStyle(document.body).getPropertyValue('--bogen-grad')) || 16;
+
+  function bogen(n, d) {
+    if (!bogenR) return '';
+    const w = d * bogenGrad * Math.PI / 180;
+    const x = bogenR * (1 - Math.cos(w));          // je weiter von der Mitte, desto weiter rechts
+    const y = bogenR * Math.sin(w) - d * size(n);  // gerade Staffelung durch Kreisbahn ersetzen
+    return `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) `;
+  }
+
+  function paint() {
+    if (tot) return;
+    const c = at() + viewport()/2;
+    for (const n of nodes) {
+      const d = (pos(n) - c) / size(n);
+      // Im Bogen bleiben mehr Kacheln sichtbar - sonst ist die Krümmung nicht zu erkennen.
+      const weit = bogenR ? 5 : 3;
+      const a = Math.min(Math.abs(d), weit);
+      const scale = bogenR
+        ? 1.3 - Math.min(a,1) * 0.36 - Math.max(a-1,0) * 0.045
+        : 1.3 - Math.min(a,1) * 0.42 - Math.max(a-1,0) * 0.06;
+      const tilt = reduceMotion || bogenR ? 0 : Math.max(-55, Math.min(55, -d * 17));
+      n.style.transform = bogen(n, d) + `perspective(1000px) ${horizontal ? 'rotateY' : 'rotateX'}(${(horizontal ? -tilt : tilt).toFixed(1)}deg) scale(${scale.toFixed(3)})`;
+      n.style.opacity = (bogenR ? Math.max(.28, 1 - a * .17) : Math.max(.16, 1 - a * .4)).toFixed(2);
+      n.style.zIndex = String(100 - Math.round(a * 10));
+    }
+  }
+  const nearest = () => {
+    const c = at() + viewport()/2;
+    let best = 0, bd = Infinity;
+    nodes.forEach((n, i) => { const d = Math.abs(pos(n) - c); if (d < bd) { bd = d; best = i; } });
+    return best;
+  };
+  function zeigeHinweis() {
+    const offen = current >= 0 && current !== committed;
+    document.body.classList.toggle('pending', offen);
+    nodes.forEach((n, k) => n.classList.toggle('is-pending', offen && k === current));
+  }
+  function mark(i) {
+    if (tot) return;
+    if (i === current) return;
+    current = i;
+    nodes.forEach((n, k) => n.classList.toggle('is-selected', k === i));
+    $('value').textContent = part === 'models' ? ((items[i] && items[i].name) || '') : '';
+    zeigeHinweis();
+  }
+  function settle() {
+    if (tot) return;
+    if (!nodes.length) return;
+    mark(nearest());
+    clearTimeout(tCommit);
+    tCommit = setTimeout(() => {
+      const now = nearest(); mark(now); go(now, false);
+      // Kein automatisches Übernehmen mehr: das Drehen wählt nur vor.
+    }, 200);
+  }
+  el.addEventListener('scroll', () => { requestAnimationFrame(paint); clearTimeout(tScroll); tScroll = setTimeout(settle, 250); }, { passive: true });
+  el.addEventListener('scrollend', settle);
+  el.addEventListener('keydown', (e) => {
+    const nx = horizontal ? 'ArrowRight' : 'ArrowDown', pv = horizontal ? 'ArrowLeft' : 'ArrowUp';
+    if (e.key === nx) { e.preventDefault(); go(current+1); }
+    if (e.key === pv) { e.preventDefault(); go(current-1); }
+  });
+  addEventListener('resize', () => { silent = true; pad(); go(current < 0 ? startIdx : current, false); paint(); silent = false; });
+
+  const stellen = () => {
+    silent = true; touched = false;
+    pad(); go(startIdx, false); paint(); mark(nearest()); committed = ohneAuswahl ? -1 : nearest();
+    zeigeHinweis(); silent = false;
+  };
+  stellen();
+  requestAnimationFrame(stellen);
+  for (const ms of [40, 120, 300]) setTimeout(() => { if (!touched) stellen(); }, ms);
+  return {
+    index() { return current; },
+    select(i) {
+      // Ein erneuter Push darf die Walze nicht zurueckreissen, waehrend gescrollt wird,
+      // und nicht, wenn sie ohnehin schon an der richtigen Stelle steht.
+      if (Date.now() - lastTouch < 4000) return;
+      if (i === current) { committed = i; zeigeHinweis(); return; }
+      silent = true; touched = false; current = -1; clearTimeout(tCommit);
+      go(i, false); paint(); mark(nearest()); committed = nearest(); zeigeHinweis(); silent = false;
+    },
+    repaint: paint,
+    destroy() { tot = true; clearTimeout(tScroll); clearTimeout(tCommit); },
+  };
+}
+
+let drum = null, signature = '', pending = null, pendingTimer = null;
+let ohneAuswahl = false;   // Fahrzeugwalze: geladenes Fahrzeug ist ausgefiltert – nichts als „übernommen“ markieren
+
+// Solange der Nutzer scrollt, wird die Walze WEDER verschoben NOCH neu aufgebaut.
+// Ein Push in dieser Zeit wird gemerkt und nachgeholt, sobald Ruhe ist.
+const RUHE_MS = 4000;
+function mount(items, render, cls, onPick, idx, fallback = 0) {
+  const wartet = Date.now() - lastInput < RUHE_MS;
+  if (drum && wartet) {
+    pending = { items, render, cls, onPick, idx, fallback };
+    clearTimeout(pendingTimer);
+    pendingTimer = setTimeout(nachholen, RUHE_MS - (Date.now() - lastInput) + 100);
+    return;
+  }
+  apply(items, render, cls, onPick, idx, fallback);
+}
+function nachholen() {
+  if (!pending) return;
+  if (Date.now() - lastInput < RUHE_MS) {            // immer noch in Bewegung: spaeter erneut
+    pendingTimer = setTimeout(nachholen, RUHE_MS - (Date.now() - lastInput) + 100);
+    return;
+  }
+  const p = pending; pending = null;
+  apply(p.items, p.render, p.cls, p.onPick, p.idx, p.fallback);
+}
+function apply(items, render, cls, onPick, idx, fallback = 0) {
+  // Bild ja/nein gehört zur Signatur: kommt ein Bild dazu, wird die Kachel neu gebaut.
+  const sig = JSON.stringify(items.map((o) => (o.id || o.code || '') + '|' + (o.name || '') + (o.img ? '|b' : '')));
+  if (drum && sig === signature) {
+    // idx < 0 heisst: der gemeldete Stand kommt in dieser Liste nicht vor.
+    // Dann die Walze stehen lassen, statt sie auf den ersten Eintrag zu reissen.
+    if (idx >= 0) drum.select(idx);
+    return;
+  }
+  // Beim Neuaufbau: bekannter Stand > im DCC markierte Option > bisherige Position.
+  // Der DCC markiert die Werksfarbe NICHT, deshalb darf "unbekannt" nicht 0 bedeuten.
+  const bisher = drum ? Math.max(0, drum.index()) : 0;
+  const start = idx >= 0 ? idx : (fallback >= 0 ? fallback : Math.min(bisher, items.length - 1));
+  if (drum) drum.destroy();
+  signature = sig;
+  drum = Drum($('drum'), items, render, cls, onPick, start);
+}
+function showNote(t) {
+  if (t && drum && Date.now() - lastInput < RUHE_MS) return;  // nicht mitten im Scrollen abraeumen
+  $('note').hidden = !t; $('note').textContent = t || '';
+  $('drum').style.display = t ? 'none' : '';
+  if (t) $('value').textContent = '';
+}
+
+// Bild direkt beim Bauen setzen. Vorher kam es nachträglich über fillModelImages -
+// wurde der Neuaufbau verschoben (Nutzer hatte gerade getippt), blieben alle Bilder leer.
+const renderModel = (m, i) => (m.img ? `<img class="model-img" data-i="${i}" alt="" src="${esc(m.img)}">` : '') + `<span class="model-name">${esc(m.name)}</span>`;
+const renderEnv = (u) => (u.img ? `<img class="env-img" alt="" src="${esc(u.img)}">` : '') + `<span class="env-name">${esc(u.name)}</span>`;
+const renderColor = (c) => `<span class="swatch"${c.img ? ` style='background-image:${esc(cssUrl(c.img))}'` : ''}></span>`;
+const renderWheel = (w) => w.img
+  ? `<span class="wheel-img" style='background-image:${esc(cssUrl(w.img))}'></span>`
+  : `<svg class="wheel-svg" viewBox="-50 -50 100 100">${rim(46, 5)}</svg>`;
+
+// Bilder einsetzen - unveraendert, so wie sie aus dem DCC kommen
+function fillModelImages(list) {
+  for (const el of $('drum').querySelectorAll('.model-img')) {
+    const m = list[Number(el.dataset.i)];
+    if (m && m.img && el.src !== m.img) el.src = m.img;
+  }
+}
+
+// ---------- Typ-Filter über der Fahrzeugwalze: Endlos-Walze ----------
+const FILTER = [['alle', 'Alle'], ['suv', 'SUV'], ['limo', 'Limousine'], ['sportback', 'Sportback'], ['avant', 'Avant'], ['rs', 'RS']];
+const LUECKE = 26;                // Abstand zwischen zwei Wörtern in px (Wortbreiten werden gemessen)
+let filterTyp = 'alle', modelle = null, showcar = null;
+let fTypen = FILTER.slice(), fPos = 0, fZiel = null, fAnim = 0, fNodes = [];
+const mod = (a, n) => ((a % n) + n) % n;
+if (part === 'models') {
+  const box = $('filter');
+  box.hidden = false; $('filterRahmen').hidden = false;
+  for (let i = 0; i < 7; i++) { const d = document.createElement('div'); d.className = 'filter-item'; box.appendChild(d); fNodes.push(d); }
+  // Ziehen mit Finger oder Maus; kurzer Tipp holt den angetippten Eintrag in die Mitte
+  let x0 = null, xAlt = 0, letzt = [], gezogen = false;
+  box.addEventListener('pointerdown', (e) => {
+    x0 = e.clientX; xAlt = e.clientX; letzt = [[e.clientX, performance.now()]]; gezogen = false;
+    cancelAnimationFrame(fAnim); fZiel = null;
+    try { box.setPointerCapture(e.pointerId); } catch {}
+  });
+  box.addEventListener('pointermove', (e) => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0;
+    if (Math.abs(dx) > 6) gezogen = true;
+    if (!gezogen) return;
+    fPos -= (e.clientX - xAlt) / schritt(Math.floor(fPos)); xAlt = e.clientX; malen();
+    letzt.push([e.clientX, performance.now()]); if (letzt.length > 5) letzt.shift();
+  });
+  const los = (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (x0 === null || !gezogen) {        // Tipp (auch wenn pointerdown fehlte): angetippten Eintrag holen
+      x0 = null; return fahren(getroffen(e.clientX));
+    }
+    // Schwung: Geschwindigkeit der letzten Bewegung weiterlaufen lassen
+    const [a, b] = [letzt[0], letzt[letzt.length - 1]];
+    const v = b && a && b[1] > a[1] ? (b[0] - a[0]) / (b[1] - a[1]) : 0;   // px/ms
+    x0 = null;
+    fahren(Math.round(fPos - v * 90 / schritt(Math.floor(fPos))));
+  };
+  box.addEventListener('pointerup', los);
+  box.addEventListener('pointercancel', () => { if (x0 !== null) { x0 = null; fahren(Math.round(fPos)); } });
+  addEventListener('resize', malen);
+  document.fonts && document.fonts.ready.then(() => { fBreiten = {}; malen(); });
+}
+// Wortbreiten einmal messen (gleiche Schrift wie die Einträge, ohne Skalierung)
+let fBreiten = {};
+function breite(k) {
+  const [key, text] = fTypen[mod(k, fTypen.length)];
+  if (!fBreiten[key]) {
+    const d = fNodes[0], alt = d.textContent, altT = d.style.transform;
+    d.style.transform = 'none'; d.style.width = 'auto'; d.textContent = text;
+    fBreiten[key] = d.getBoundingClientRect().width || text.length * 10;
+    d.textContent = alt; d.style.transform = altT;
+  }
+  return fBreiten[key];
+}
+const schritt = (k) => breite(k) / 2 + breite(k + 1) / 2 + LUECKE;   // Mitte zu Mitte, k → k+1
+// x-Abstand der Mitte von Eintrag k zur Walzenmitte bei Position fPos
+function versatz(k) {
+  const basis = Math.floor(fPos), frac = fPos - basis;
+  let x = 0;
+  if (k >= basis) for (let i = basis; i < k; i++) x += schritt(i); else for (let i = k; i < basis; i++) x -= schritt(i);
+  return x - frac * schritt(basis);
+}
+function getroffen(clientX) {
+  const mitteX = $('filter').getBoundingClientRect().left + $('filter').clientWidth / 2;
+  let best = Math.round(fPos), bd = Infinity;
+  for (let k = Math.floor(fPos) - 3; k <= Math.floor(fPos) + 3; k++) { const d = Math.abs(mitteX + versatz(k) - clientX); if (d < bd) { bd = d; best = k; } }
+  return best;
+}
+function malen() {
+  if (part !== 'models' || !fTypen.length || !fNodes.length) return;
+  const n = fTypen.length, mitteX = $('filter').clientWidth / 2, basis = Math.floor(fPos);
+  fNodes.forEach((d, j) => {
+    const k = basis - 3 + j, a = Math.abs(k - fPos);
+    const [key, text] = fTypen[mod(k, n)];
+    if (d.textContent !== text) d.textContent = text;
+    d.dataset.k = key;
+    const w = breite(k), x = versatz(k);
+    const scale = 1.1 - Math.min(a, 1) * .22 - Math.max(a - 1, 0) * .06;
+    d.style.width = w + 'px';
+    d.style.transform = `translateX(${(mitteX + x - w / 2).toFixed(1)}px) scale(${scale.toFixed(3)})`;
+    d.style.opacity = Math.max(0, 1 - a * .42).toFixed(2);
+    d.classList.toggle('mitte', a < .5);
+  });
+  const mitte = fNodes.find((d) => d.classList.contains('mitte'));
+  if (mitte) $('filterRahmen').style.width = Math.round(breite(Math.round(fPos)) * 1.1 + 30) + 'px';
+}
+function fahren(k) {
+  cancelAnimationFrame(fAnim);
+  fZiel = k;
+  const start = fPos, t0 = performance.now(), dauer = Math.min(600, 220 + Math.abs(k - start) * 120);
+  const schritt = (t) => {
+    const p = Math.min(1, (t - t0) / dauer), e = 1 - Math.pow(1 - p, 3);
+    fPos = start + (k - start) * e; malen();
+    if (p < 1) { fAnim = requestAnimationFrame(schritt); return; }
+    fPos = k; fZiel = null; malen();
+    const typ = fTypen[mod(k, fTypen.length)][0];
+    if (typ !== filterTyp) {
+      const warShow = filterTyp === 'show';
+      filterTyp = typ;
+      document.body.classList.toggle('showcar', typ === 'show');
+      if (typ === 'show') return send({ type: 'select', kind: 'show', value: true });
+      if (warShow) send({ type: 'select', kind: 'show', value: false });
+      zeigeModelle(true);
+    }
+  };
+  fAnim = requestAnimationFrame(schritt);
+}
+// Nur Typen mit passenden Fahrzeugen; die Walze auf den aktuellen Typ stellen
+function filterChips() {
+  if (part !== 'models') return;
+  const list = modelle ? modelle.list : [];
+  fTypen = FILTER.filter(([k]) => k === 'alle' || list.some((m) => (m.typ || []).includes(k)));
+  if (showcar) fTypen.push(['show', '★ ' + showcar.name]);
+  if (!fTypen.some(([k]) => k === filterTyp)) filterTyp = 'alle';
+  if (fZiel === null) {
+    const n = fTypen.length, i = fTypen.findIndex(([k]) => k === filterTyp);
+    fPos = Math.round(fPos) - mod(Math.round(fPos), n) + i;   // gleiche Runde, richtiger Eintrag
+  }
+  malen();
+}
+// Von außen (Leerlauf): auf dem kürzesten Weg zum Typ drehen
+function filterSetzen(typ) {
+  const n = fTypen.length, i = fTypen.findIndex(([k]) => k === typ);
+  if (i < 0) return;
+  const jetzt = mod(Math.round(fPos), n);
+  let diff = i - jetzt; if (diff > n / 2) diff -= n; if (diff < -n / 2) diff += n;
+  fahren(Math.round(fPos) + diff);
+}
+function zeigeModelle(sofort) {
+  if (!modelle) return;
+  const list = filterTyp === 'alle' ? modelle.list : modelle.list.filter((m) => (m.typ || []).includes(filterTyp));
+  if (!list.length) return;
+  const i = list.findIndex((m) => m.id === modelle.selId);
+  ohneAuswahl = i < 0;
+  const onPick = (m) => send({ type: 'select', kind: 'model', value: m.id });
+  if (sofort) { pending = null; apply(list, renderModel, 'item--model', onPick, Math.max(0, i)); }   // Filterwechsel: nicht warten
+  else mount(list, renderModel, 'item--model', onPick, i < 0 ? (drum ? -1 : 0) : i);
+  fillModelImages(list);
+}
+
+// ---------- Farbwalze: Serie | Exclusive ----------
+// Kacheln mit "unter" (Platzhalter Q0Q0/O0O0 mit erfassten Audi-exclusive-Farben) erscheinen nicht selbst;
+// ihre Farben bilden die zweite Walze "Exclusive". Oben wird umgeschaltet, gezeigt wird immer nur eine Walze.
+let farbDaten = null, farbModus = 'serie', farbAuto = '';
+const FARBMODI = [['serie', 'Serie'], ['exklusiv', 'Exclusive']];
+const farbListe = (o, modus) => modus === 'exklusiv' ? o.colors.flatMap((c) => c.unter || []) : o.colors.filter((c) => !c.unter);
+function zeigeFarben(sofort) {
+  const o = farbDaten;
+  if (!o) return;
+  const hatExkl = farbListe(o, 'exklusiv').length > 0;
+  // Neues Fahrzeug (andere Farbliste): Modus dorthin, wo die geladene Farbe liegt
+  const sig = o.colors.map((c) => c.code).join('|');
+  if (sig !== farbAuto) { farbAuto = sig; farbModus = farbListe(o, 'exklusiv').some((c) => c.code === o.sel.color) ? 'exklusiv' : 'serie'; }
+  if (!hatExkl) farbModus = 'serie';
+  $('farbmodus').hidden = !hatExkl;
+  modusZeigen(false);
+  const list = farbListe(o, farbModus);
+  const i = list.findIndex((c) => c.code === o.sel.color);
+  ohneAuswahl = i < 0;   // geladene Farbe liegt in der anderen Walze: nichts als „übernommen“ markieren
+  const onPick = (c) => send({ type: 'select', kind: 'color', value: c.code });
+  if (sofort) { pending = null; apply(list, renderColor, 'item--color', onPick, Math.max(0, i)); }   // Umschalten: nicht warten
+  else mount(list, renderColor, 'item--color', onPick, i, aktiverIndex(list));
+}
+// Wort im Rahmen wechseln: altes gleitet in Wischrichtung hinaus, neues kommt von der anderen Seite
+let fmWort = null;
+function modusZeigen(animiert, richtung = 1) {
+  const box = $('farbmodus'), text = (FARBMODI.find(([k]) => k === farbModus) || [])[1];
+  if (fmWort && fmWort.textContent === text) return;
+  const neu = document.createElement('div');
+  neu.className = 'farbmodus-wort'; neu.textContent = text;
+  if (animiert) { neu.style.transform = `translateX(${richtung * 100}%)`; neu.style.opacity = '0'; }
+  box.appendChild(neu);
+  const alt = fmWort; fmWort = neu;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    neu.style.transform = 'translateX(0)'; neu.style.opacity = '1';
+    if (alt) { alt.style.transform = `translateX(${-richtung * 100}%)`; alt.style.opacity = '0'; setTimeout(() => alt.remove(), 400); }
+  }));
+  const r = document.createRange(); r.selectNodeContents(neu);
+  setTimeout(() => { const w = neu.getBoundingClientRect().width && r.getBoundingClientRect().width; if (w) $('fmRahmen').style.width = Math.round(w + 28) + 'px'; }, 0);
+  box.querySelectorAll('.farbmodus-punkte i').forEach((p, k) => p.classList.toggle('an', FARBMODI[k][0] === farbModus));
+}
+function modusWechseln(richtung) {
+  farbModus = farbModus === 'serie' ? 'exklusiv' : 'serie';
+  modusZeigen(true, richtung);
+  zeigeFarben(true);
+}
+if (part === 'colors') {
+  const box = $('farbmodus');
+  let x0 = null;
+  box.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+  box.addEventListener('pointerup', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    const dx = x0 === null ? 0 : e.clientX - x0; x0 = null;
+    modusWechseln(dx < -15 ? 1 : dx > 15 ? -1 : 1);   // Wisch nach links/rechts oder Tipp
+  });
+}
+
+window.fe = {
+  setBar() {},
+  setModels(list, selId, show) {
+    if (part !== 'models' || !list.length) return;
+    modelle = { list, selId };
+    if (JSON.stringify(show && show.name) !== JSON.stringify(showcar && showcar.name)) fBreiten = {};
+    showcar = show || null;
+    filterChips();
+    zeigeModelle(false);
+  },
+  setFilter(f) { if (part === 'models' && f !== filterTyp) filterSetzen(f); },
+  setEnvs(list, selId) {
+    if (part !== 'envs' || !list.length) return;
+    const i = list.findIndex((u) => u.id === selId);
+    mount(list, renderEnv, 'item--env', (u) => send({ type: 'select', kind: 'env', value: u.id }), i, 0);
+  },
+  setOptions(o) {
+    if (part === 'colors') {
+      if (!o.colors.length) return showNote(o.colorMissing ? 'Farben noch nicht zugeordnet' : 'Keine Farben');
+      showNote('');
+      farbDaten = o;
+      zeigeFarben(false);
+    }
+    if (part === 'wheels') {
+      if (!o.wheels.length) return showNote(o.wheelMissing ? 'Felgen noch nicht zugeordnet' : 'Keine Felgen');
+      showNote('');
+      const i = findeIndex(o.wheels, o.sel.wheel);
+      mount(o.wheels, renderWheel, 'item--wheel',
+        (w) => send({ type: 'select', kind: 'wheel', value: w.code }), i, aktiverIndex(o.wheels));
+    }
+  },
+  setBusy(on, text) {
+    $('busy').textContent = text || 'wird geladen …';
+    $('busy').hidden = !on;
+    document.body.classList.toggle('busy', !!on);
+    // Zweite Ebene der Notbremse: kommt von der Shell kein "fertig" mehr, gibt die
+    // Walze sich nach 150 s selbst frei. Lieber bedienbar als tot.
+    clearTimeout(busyTimer);
+    if (on) busyTimer = setTimeout(() => {
+      $('busy').hidden = true;
+      document.body.classList.remove('busy');
+    }, 150000);
+  },
+};
+// Türen, Kofferraum, Fahrszene (part=actions): keine Walze, Schalter
+if (part === 'actions') {
+  const ICON = {
+    // Seitenansicht mit geöffneter Tür
+    tueren: '<svg viewBox="0 0 32 32"><path d="M3 21h26v-4l-4-1-4-5H10l-4 5-3 1z"/><circle cx="9" cy="22" r="2.4"/><circle cx="23" cy="22" r="2.4"/><path d="M14 11l-5-7h7l4 7"/></svg>',
+    // Heck mit hochgeklappter Klappe
+    kofferraum: '<svg viewBox="0 0 32 32"><path d="M4 22h24v-6l-3-3H7l-3 3z"/><circle cx="9" cy="23" r="2.4"/><circle cx="23" cy="23" r="2.4"/><path d="M8 13L6 5h20l-2 8"/></svg>',
+    // Leaving Home: Haus, Pfeil hinaus
+    leaving: '<svg viewBox="0 0 32 32"><path d="M3 15l9-8 9 8"/><path d="M5.5 13v13h13v-4"/><path d="M15 18h14m-4-4l4 4-4 4"/></svg>',
+    // Coming Home: Haus, Pfeil hinein
+    coming: '<svg viewBox="0 0 32 32"><path d="M3 15l9-8 9 8"/><path d="M5.5 13v13h13v-4"/><path d="M29 18H13m4-4l-4 4 4 4"/></svg>',
+    // Play 1 / Play 2: erste und zweite Fahrszene
+    fahren: '<svg viewBox="0 0 32 32"><path d="M9 8.5v15l12-7.5z" style="fill:currentColor"/><text x="26" y="29" text-anchor="middle" style="fill:currentColor;stroke:none;font:700 13px sans-serif">1</text></svg>',
+    fahren2: '<svg viewBox="0 0 32 32"><path d="M9 8.5v15l12-7.5z" style="fill:currentColor"/><text x="26" y="29" text-anchor="middle" style="fill:currentColor;stroke:none;font:700 13px sans-serif">2</text></svg>',
+  };
+  const box = document.createElement('div');
+  box.className = 'aktionen';
+  box.innerHTML = Object.keys(ICON).map((k) => `<button class="akt" data-k="${k}" aria-label="${k}">${ICON[k]}</button>`).join('');
+  document.body.appendChild(box);
+  // pointerup statt click: rechte/obere Fenster bekommen unter Windows kein click (siehe Walzen)
+  for (const b of box.querySelectorAll('.akt')) b.addEventListener('pointerup', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (box.classList.contains('busy') || document.body.classList.contains('busy') || b.classList.contains('gesperrt')) return;
+    box.classList.add('busy');          // sofort sperren – nicht erst, wenn die Shell antwortet
+    send({ type: 'select', kind: 'aktion', value: b.dataset.k });
+  });
+  window.fe.setAktionen = (o) => {
+    for (const b of box.querySelectorAll('.akt')) {
+      b.classList.toggle('an', !!o[b.dataset.k]);
+      b.classList.toggle('gesperrt', (o.gesperrt || []).includes(b.dataset.k));
+      b.hidden = (o.ohne || []).includes(b.dataset.k);
+    }
+    box.classList.toggle('busy', !!o.busy);
+  };
+}
+// Waagerechte Walze: Mausrad (senkrecht) in waagerechtes Scrollen umsetzen
+if (horizontal) $('drum').addEventListener('wheel', (e) => {
+  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { e.preventDefault(); $('drum').scrollBy({ left: e.deltaY > 0 ? 150 : -150, behavior: 'smooth' }); }
+}, { passive: false });
+send({ type: 'ready' });
+</script>
+</body>
+</html>

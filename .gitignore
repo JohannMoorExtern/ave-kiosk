@@ -1,0 +1,11 @@
+# Lokal auf dem Kiosk-PC – nicht ins Repository
+config.json
+umgebungen.json
+fahrzeuge.json
+bilder/
+kiosk.log
+ave-info.txt
+fahrzeugbilder*.json
+katalog?*.json
+node_modules/
+tests/fixtures/kiosk.log

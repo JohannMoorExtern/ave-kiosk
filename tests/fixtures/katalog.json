@@ -1,0 +1,2277 @@
+{
+ "stand": "2026-10-07T08:53:00.018Z",
+ "hinweis": "Testauszug aus katalog.json",
+ "fahrzeuge": [
+  {
+   "carlineId": "50327\\2027",
+   "modelId": "8YVS5Y-50327\\2027",
+   "name": "Audi S3 Limousine TFSI 245 kW S tronic",
+   "aveString": "50327,8YVS5Y,2027,B1B1,EI,0BL,9ZV,1KY,0TD,6NQ,F0A,6I5,0RG,4A0,GV0,IU7,A1E,73A,3L3,0Y1,1XY,J2D,9TA,1D0,3FA,G1D,4H5,QV3,FZ1,KS0,GJ0,9AK,2WA,7UA,6A0,VC0,2F0,0LW,3A2,8N6,0K0,2Z7,8RL,4L2,EW0,NJ0,2H6,1SA,8FA,95U,L0L,76A,1N7,5J4,QE1,3NT,7HF,F30,N2Y,K8S,NT0,6Y2,QI6,6E3,5L0,QQ2,B0A,V0A,EA0,8M0,8Y1,7AA,JE3,4K5,7K1,EF1,4VN,6H0,9NX,3V4,VF1,1E5,1G8,1X1,U5A,4ZE,8J3,0F1,7X2,1S3,1Z0,8X8,1LY,2KR,99H,LT1,A8F,5ZF,EM3,MR7,FT0,31B,QG1,GP2,7E0,0AE,04A,GA0,1T3,KA0,2CH,4UF,6F7,5JA,FN0,NI1,1EX,B01,5C0,6FC,1AQ,1PA,QK1,IX1,8VP,1JE,AQ0,IW4,E0A,7Y0,9M0,NY0,QR9,G05,0B1,VT5,GM1,H7D,98F,GB0,FP1,JX1,AV1,ES0,8GU,A00,0VC,8IT,20A,9S9,7W0,EV0,FQ0,Q1D,NW0,3S0,T3W,98A,8K4,NM1,UH1,4G3,7P0,6XN,5TB,0IJ,5K5,8Z5,ER1,4E6,0P0,2JU,9JA,6C2,7L6,QL1,99B,99S,KK3,1I0,A51,GN0,IT6,4P1,NZ2,5F1,8G1,0N4,98Q,4GH,FA0,QJ1",
+   "verbrauch": [
+    "Kraftstoffverbrauch (kombiniert): 8,2 - 8,0 l/100 km",
+    "CO₂-Emissionen (kombiniert): 186 - 182 g/km",
+    "CO₂-Klasse: G"
+   ],
+   "bild": {
+    "ansicht": "exterior_side-front",
+    "moma": "https://mediaservice.audi.com/media/fast/v3_x2TXWhbdRiH_3u62i05OelJ6WmSxkRyPiyVuOQkbdOx6FJEvNiwdNZdeJH925ym2fJlchpTFPFGqBcTL1axijda0OnUgSLCxjYVBCebXgjKQBiyC8WK4GBTvNDUu_fi97zve_H8zv0uBtfagqfmzt0e--uefU_cRIheS4iBM2LQW2svNfcIIebxVeuy4h442XIrY5bMptyel5Ld1gEn7cykZLYlU0eqqeJiNt9L5dfTKVmrBcVQnxQDQuzfEGLI3t0jVHWtXWvJtqw_-Ey17K1qE7ns0kpOTjtTM9l8Ju04mbzjOu5s3nWWHLkkc7PT5emVJScT6tOfi4Gyuyb0RmV5eaXdbHjZXNntnPKarV6vVxND-fVuZ2o9I_bufsV9Se49zOgr6MfQz6N_TPg2kUNEJ4kWiZ4h-h7Rzxj_l9gWiQ9IXCDxHckbJP_E2INxHOMP7HHsR7B7iDl8l1DaBN5BfZigTrhH-CNiTWKS2Gkmq5jXse4iDMQUQqJdRLtKaJDQCKPvomeJrhALYU5i3sA6j28Q3zbKDMpDqDk0Dz1CpEzkGyJ3iO5gBjFtzBymxNzGvIqVwT-H_w7KJ4QeRX8b_SsCXxP4FPUttINoJbQv0a4TsgkdIvQ4IY_R00QuEFtg4gHiPxG_S_wfEntJDJMwSP6GEcZ4FcPDuIi5iAVWCMvEuoVyHGWbwBaBXwk2CL7B8CLDzzF5GWOWsEf4dcLfMnmCyFmi_SvLxK8Q_wLjMopG8EdGZhhdRd9Av0J4jPBJwi-SqJO8iVXCehprC-saYgjxLPt38C3gq-O7hf8E_nX8P6MoKGdRPiTwMoHvUSuoPdQXUF8iWCS4QbBH5E3GW8TeJ36JxEESXZJ_Y0ygHSayQOR5YgrGNYxfsDZQBlBiqJuoOwR30Pahvcb9m-g_9DXbdBvdal-vutvwCkebR4ulx5prHbc0J5dPtWrSczv2__IWMrNO2l51q5VVr5DJ5dK2rLVWZWFF1jquvSzrblsWjnn93pSKJaeUTvcDjX6PvGqz0SnMNzvV3enILm53PNdtVxsV2ajU3EImbdddT5alJ7tuu9NPFZyRgeKT8_8Bl9JsSq8DAAA?wid=900",
+    "standard": "https://mediaservice.audi.com/media/fast/v3_x2TXWhbdRjG__21WWd6kvSkNE3SmEhOzrFU4pImaZux6FJEdrGx0ll34UX6b3OaZubL5KSm-IE3Qr2YemHFKt5owc1NHfMDYWObCoIbm14IykAYsgvFitDBpnihJ715eD-e533fi-c9-6dwtJuCp2bO3hn5e8_eJ24hRKchRO954bDazcV6jxBiFme5KkvmvhMNs-Ta2dkZ0WUqbnasuFxt7JtITEzFZaoh44fL8fx8aroTn15LxGWl4hH9tlo4ujPO2NCzYMOeazb0vSZ2sVvcbX_ezXmh12Z37O2HujrhdreblYZsyurDz5aL1oo6lk1lJ1NmcXExmcxOJCeLiWxqOZOeTmVNM5OZzMpJObk8tZRJeG31V6K3aLaFo5ZeSiRF__TaaiuzlhR93Xt5IMr9Bxl-Hd8xfOfwfYr_DoEDBMcJ5gm-QfBDgl8y-h-hTSIfEblA5AeiN4nuoPWgHUf7C2MU4zGMDmIG5yWUJq4PcD-Kx4e_g_8TQnVCktBJxsvEbqDfQ2iIDEKiXkS9iteBd4jhU_hSBJcJeYmNE7uJfg6nA-cWyhTKI7jTqBa-AIEigWsE7hLcJuYhZhBLE5PEtohdRU8yMMPAXZTP8D6O73183-L6DtcXuN9D3Y9aQP0G9QZeA-8BvEfxWgyfJHCB0BxjDxH-hfA9wv8S6SMySEQj-geaH-1NNAvtIrF5dNC96DH02yjHUbZwbeL6HU8NzzsMzjP4POOX0bL4Lfxv4_-e8QUCpwnaW5YIXyH8NdplFBXPzwxNMbyCbx3fFfwj-E_gf5lIlegt9AL6M-ib6NcR_YjnuG8b5xzOKs7bDCwwsMbArygKymmUj3G9iutH3CXcHdwv4X4FTx7POp4OgXcZbRA6Q_gSkf1EVon-gzaGepDAHIEXCSlo19F-Q19H6UUJ4d7AvY1nG3Uv6ls8uIHvJ9tVG2Zttdys16pmzcodqR_JFw7V2y2zMCOXnm5UpGW2jF2v5myDJowVs1xasXLJdDphyEpjReasZts0lmTVbMrcMatdLNcL-cJEIZGwCTX7y6xyvdbKzdZb5W50uCs3WpZpNsu1kqyVKmYumTCqpiWL0pKrZrNls3ITQ735J2f_B9njFAXNAwAA?wid=900"
+   },
+   "farben": [
+    {
+     "id": "F14 Z9Z9",
+     "code": "Z9Z9",
+     "name": "Arkonaweiß",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3ddd6d72-e608-4057-939a-d00dcf3c7b99.jpg",
+     "serie": false,
+     "plus": [
+      "Z9Z9"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 9W9W",
+     "code": "9W9W",
+     "name": "Ascariblau Metallic",
+     "preis": "1.000,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ee20546b-1532-44be-9025-d90c42622aca.jpg",
+     "serie": false,
+     "plus": [
+      "9W9W"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 M4M4",
+     "code": "M4M4",
+     "name": "Distriktgrün Metallic",
+     "preis": "730,00 EUR",
+     "img": null,
+     "serie": false,
+     "plus": [
+      "M4M4"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 2Y2Y",
+     "code": "2Y2Y",
+     "name": "Gletscherweiß Metallic",
+     "preis": "730,00 EUR",
+     "img": null,
+     "serie": false,
+     "plus": [
+      "2Y2Y"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 0E0E",
+     "code": "0E0E",
+     "name": "Mythosschwarz Metallic",
+     "preis": "730,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//695a21bf-8f98-4f5e-a4c4-d17813955f5e.jpg",
+     "serie": false,
+     "plus": [
+      "0E0E"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 2D2D",
+     "code": "2D2D",
+     "name": "Navarrablau Metallic",
+     "preis": "730,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6788446b-b331-49ba-9065-6076db93c9cf.jpg",
+     "serie": false,
+     "plus": [
+      "2D2D"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 B1B1",
+     "code": "B1B1",
+     "name": "Progressivrot Metallic",
+     "preis": "730,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//4912fbfc-e824-4f6b-b927-ee34b05b4a5f.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "F14 6Y6Y",
+     "code": "6Y6Y",
+     "name": "Daytonagrau Perleffekt",
+     "preis": "730,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//fb337f66-3cd0-4688-9fb3-abe81404b55e.jpg",
+     "serie": false,
+     "plus": [
+      "6Y6Y"
+     ],
+     "minus": [
+      "B1B1"
+     ]
+    },
+    {
+     "id": "F14 Q0Q0",
+     "code": "Q0Q0",
+     "name": "Individuallackierungen Audi exclusive",
+     "preis": "3.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e21a7b29-54b4-45a5-a0b1-82299fc4e705.jpg",
+     "serie": false,
+     "plus": [
+      "Q0Q0"
+     ],
+     "minus": [
+      "B1B1"
+     ],
+     "exklusiv": [
+      {
+       "code": "Q0Q0:AEEXC095",
+       "ae": "AEEXC095",
+       "pr": "LC_PR_AEEXC095",
+       "name": "Vegasgelb Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC095.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC138",
+       "ae": "AEEXC138",
+       "pr": "LC_PR_AEEXC138",
+       "name": "Granatrot Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC138.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC089",
+       "ae": "AEEXC089",
+       "pr": "LC_PR_AEEXC089",
+       "name": "Sevillarot Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC089.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC063",
+       "ae": "AEEXC063",
+       "pr": "LC_PR_AEEXC063",
+       "name": "Merlin Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC063.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC062",
+       "ae": "AEEXC062",
+       "pr": "LC_PR_AEEXC062",
+       "name": "Samtviolett Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC062.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC080",
+       "ae": "AEEXC080",
+       "pr": "LC_PR_AEEXC080",
+       "name": "Kumulusblau Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC080.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC034",
+       "ae": "AEEXC034",
+       "pr": "LC_PR_AEEXC034",
+       "name": "Sepangblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC034.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC032",
+       "ae": "AEEXC032",
+       "pr": "LC_PR_AEEXC032",
+       "name": "Nogaroblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC032.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC109",
+       "ae": "AEEXC109",
+       "pr": "LC_PR_AEEXC109",
+       "name": "Ascariblau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC109.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC038",
+       "ae": "AEEXC038",
+       "pr": "LC_PR_AEEXC038",
+       "name": "Nachtblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC038.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC139",
+       "ae": "AEEXC139",
+       "pr": "LC_PR_AEEXC139",
+       "name": "Morgentaugrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC139.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC140",
+       "ae": "AEEXC140",
+       "pr": "LC_PR_AEEXC140",
+       "name": "Avocadogrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC140.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC027",
+       "ae": "AEEXC027",
+       "pr": "LC_PR_AEEXC027",
+       "name": "Goodwoodgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC027.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC028",
+       "ae": "AEEXC028",
+       "pr": "LC_PR_AEEXC028",
+       "name": "Tiefgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC028.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC145",
+       "ae": "AEEXC145",
+       "pr": "LC_PR_AEEXC145",
+       "name": "Taktikgrün Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC145.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC104",
+       "ae": "AEEXC104",
+       "pr": "LC_PR_AEEXC104",
+       "name": "Sohobraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC104.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC101",
+       "ae": "AEEXC101",
+       "pr": "LC_PR_AEEXC101",
+       "name": "Teakbraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC101.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC058",
+       "ae": "AEEXC058",
+       "pr": "LC_PR_AEEXC058",
+       "name": "Ipanemabraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC058.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC042",
+       "ae": "AEEXC042",
+       "pr": "LC_PR_AEEXC042",
+       "name": "Sandbeige Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC042.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC079",
+       "ae": "AEEXC079",
+       "pr": "LC_PR_AEEXC079",
+       "name": "Pfeilgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC079.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC085",
+       "ae": "AEEXC085",
+       "pr": "LC_PR_AEEXC085",
+       "name": "Nardograu Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC085.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC086",
+       "ae": "AEEXC086",
+       "pr": "LC_PR_AEEXC086",
+       "name": "Quantumgrau Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC086.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC071",
+       "ae": "AEEXC071",
+       "pr": "LC_PR_AEEXC071",
+       "name": "Nimbusgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC071.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC083",
+       "ae": "AEEXC083",
+       "pr": "LC_PR_AEEXC083",
+       "name": "Vesuvgrau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC083.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC081",
+       "ae": "AEEXC081",
+       "pr": "LC_PR_AEEXC081",
+       "name": "Havannaschwarz Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC081.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC067",
+       "ae": "AEEXC067",
+       "pr": "LC_PR_AEEXC067",
+       "name": "Pantherschwarz Kristalleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC067.jpeg"
+      }
+     ]
+    },
+    {
+     "id": "F14 O0O0",
+     "code": "O0O0",
+     "name": "Polarmatteffekt Audi exclusive",
+     "preis": "5.500,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//2e2193d7-eb85-48a7-94fa-4c02ce45b641.jpg",
+     "serie": false,
+     "plus": [
+      "O0O0",
+      "5K6"
+     ],
+     "minus": [
+      "B1B1",
+      "5K5"
+     ],
+     "exklusiv": [
+      {
+       "code": "O0O0:AEEXC141",
+       "ae": "AEEXC141",
+       "pr": "LC_PR_AEEXC141",
+       "name": "Daytonagrau Polarmatteffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/O0O0/AEEXC141.jpeg"
+      },
+      {
+       "code": "O0O0:AEEXC142",
+       "ae": "AEEXC142",
+       "pr": "LC_PR_AEEXC142",
+       "name": "Distriktgrün Polarmatteffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/O0O0/AEEXC142.jpeg"
+      }
+     ]
+    }
+   ],
+   "felgen": [
+    {
+     "id": "MRADF30",
+     "code": "F30",
+     "name": "Räder, 5-Doppelspeichen, graphitgrau, glanzgedreht, 8,0Jx18, Reifen 225/40 R18",
+     "preis": "-,-- EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//48037c11-3b35-4bff-88bb-c2ded8c69dd9.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "MRADV29",
+     "code": "V29",
+     "name": "Räder Audi Sport, 10-Speichen-Stern, 8,0Jx18, Reifen 225/40 R18",
+     "preis": "1.000,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//2bff13c5-6b96-45d2-a961-ad8968ae44e9.jpg",
+     "serie": false,
+     "plus": [
+      "V29",
+      "FQ1"
+     ],
+     "minus": [
+      "F30",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRAD40Z",
+     "code": "40Z",
+     "name": "Räder Audi Sport, 5-Arm-Stern, schwarz metallic, glanzgedreht, 8,0Jx19, Reifen 235/35 R19",
+     "preis": "1.840,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//49109b6a-fb8c-4aa0-88a1-7f7ee3a6d68b.jpg",
+     "serie": false,
+     "plus": [
+      "40Z",
+      "HI7",
+      "FQ1"
+     ],
+     "minus": [
+      "F30",
+      "H7D",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRADC2T",
+     "code": "C2T",
+     "name": "Räder Audi Sport, 5-Doppelspeichen-Edge, anthrazitschwarz, glanzgedreht, 8,0Jx19, Reifen 235/35 R19",
+     "preis": "1.840,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//0475a663-80b8-4f77-bdc4-c6c3c1f9c51f.jpg",
+     "serie": false,
+     "plus": [
+      "C2T",
+      "HI7",
+      "FQ1"
+     ],
+     "minus": [
+      "F30",
+      "H7D",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRADC6H",
+     "code": "C6H",
+     "name": "Räder Audi Sport, 5-Y-Arm-Struktur, grau matt, glanzgedreht, 8,0Jx19, Reifen 235/35 R19",
+     "preis": "1.840,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ad449d1f-4752-44de-870e-00891aa6487a.jpg",
+     "serie": false,
+     "plus": [
+      "C6H",
+      "HI7",
+      "FQ1"
+     ],
+     "minus": [
+      "F30",
+      "H7D",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRAD40R",
+     "code": "40R",
+     "name": "Räder Audi Sport, 5-Y-Doppelspeichen, schwarz metallic, 8,0Jx18, Reifen 225/40 R18",
+     "preis": "1.240,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//b2dfaca3-2369-4178-a847-784be00730c0.jpg",
+     "serie": false,
+     "plus": [
+      "40R",
+      "FQ1"
+     ],
+     "minus": [
+      "F30",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRAD45T",
+     "code": "45T",
+     "name": "Räder Audi Sport, Vielspeichen S, anthrazitschwarz, glanzgedreht, 8,0Jx19, Reifen 235/35 R19",
+     "preis": "1.840,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ed593517-de2e-4dcc-9370-729a0911a86f.jpg",
+     "serie": false,
+     "plus": [
+      "45T",
+      "HI7",
+      "FQ1"
+     ],
+     "minus": [
+      "F30",
+      "H7D",
+      "FQ0"
+     ]
+    }
+   ]
+  },
+  {
+   "carlineId": "51077\\2027",
+   "modelId": "FN2A2Y-51077\\2027",
+   "name": "Audi A6 Limousine e-hybrid quattro 270 kW S tronic",
+   "aveString": "51077,FN2A2Y,2027,0E0E,QM,PQ2,79H,6XK,4L6,6C4,JX1,JH1,8X8,99C,1J2,GA2,7W7,KA4,98G,8VP,4G3,9AQ,99I,9ZV,1KQ,0TD,6NQ,F0A,6I5,0RZ,4A3,GV0,IU6,A1E,5P1,73A,0M4,3L3,0Y1,1XY,1VG,9TF,1D0,3FP,3GA,G1D,QV3,4KC,J2D,FZ1,KS0,0FA,6A0,GJ7,2WA,VC0,0LW,3A2,2Z7,2F1,GH4,0K3,0UA,9VD,4D0,EW0,GW0,NJ0,2H9,1SA,V6G,95U,L0L,5J0,76H,7HB,K8B,CD4,N2Y,6Y2,QI6,EA0,6E3,5L0,8Y1,QQ2,B0A,7AA,JE3,4K5,7K3,4VN,6H0,0KE,9NX,8T3,UE8,VF1,1G8,1BE,1X1,U5A,4ZB,6JD,3Y0,8J3,1A2,9X0,FK0,FB4,1Z0,98K,9B0,1LY,2KR,LT2,A9F,5ZJ,EM3,D6E,FT1,31B,GP0,7E6,GS0,04C,9PA,1T9,5IY,4UF,3CA,6F7,5JA,FM7,1PA,NI1,1EX,B01,5C0,6FA,QK1,IX1,AI0,AQ0,IW4,E0A,9M0,QR9,GZ0,VT3,NY0,AI8,GM4,HH1,GB0,FP1,AV1,ES3,8GZ,0VC,2C5,FU0,8IV,20F,9S9,EV0,FQ0,Q1D,NW0,3S0,T4E,98B,9I5,7P1,5MV,2K7,5K7,8Z5,ER1,4E2,0P0,9JA,QL1,FC0,99S,1I0,A51,IT3,5F1,2V5,8G5,0N5,98R,4GQ,FA0,Q8C,QJ1",
+   "verbrauch": [
+    "Kraftstoffverbrauch (gewichtet kombiniert): 2,5 - 2,0 l/100 km",
+    "Stromverbrauch (gewichtet kombiniert): 16,5 - 15,4 kWh/100 km",
+    "CO₂-Emissionen (kombiniert): 57 - 45 g/km",
+    "CO₂-Klasse: B",
+    "Kraftstoffverbrauch bei entladener Batterie (kombiniert): 7,3 - 6,5 l/100 km",
+    "CO₂-Klasse bei entladener Batterie: E"
+   ],
+   "bild": {
+    "ansicht": "exterior_side-front",
+    "moma": "https://mediaservice.audi.com/media/fast/v3_x2TXWhbdRjG__vFLi49yenJ6FlOPCSSk3Mslbh8dW2nUTu1CIortKsXXqT_Jidp1nyRnHaRil4NejPwQnQyRIQ6cA4dDIZuMhwFEWSCU1AGwhQvFCq7UKpDBE-9e194nvfzeS7-LobWeoKXjl3849Df--9fuIMQg64QgffFkLfWW-7sE0LMEWq0ZN09fLLr1g-l5ZGMO_Aycr17OJ_NT2bkkWaj1cnMnJiYzmWKc9mMbDZVEfSJIiDEgU0hgs5eGRGJrPWaXdmTrUdONareijY2VSjWipVcYbqWK0zVpqsVWZsqTuYmKxM1d6KQz8lCdTm_nCtEffYXIlB114TerlcqtV6n7RWKVbe_6nW6g8GgKYK1dl7mX86K-_aGIiVIJBh9HX0e_RL6ZQwwHiM-Tvwp4m8Qv0D8E5IZkhdIXiP5LanbpP7E2od1EusuThjnaZwB4klCCqHThK6j9FB1YhvEPsZsYy5jnmG8QfJR0m-R_hp7FzGB9hnRg4yeR8-h--3qmAbmGOazpAOkx0nfxr5EKEhoC-UhlMeJFNE20BMYqxhfYewS38EKklZJp0gvk97CLjD8DMO7KFeJxojOop8n_BHhTwlfIXwP7ShaGU2ibaN9Q9QhOkH0ONFTGNcwX8B8BXObsYdJ_EjiLxL_kPiX5BDJEVJfkrqLFcd6E8vDuk56ERvsKLaBfRz7DsoW4fcIXyb8G2ob9RwjJxjxzzVNrE_sHONLGB8Qf5H4FeJXMaskbpDYJnAT63MUDfUHRp9gdAV9E_0GsSix09hL2G9j3_TFhwgiBhzYIfQcoXlCLUK_MLzE8AbDP6MoKP6-Zwh_RyRMxCTyGuoM6gLqJuq76LMY7xD_iQe6mB9i3iJ5lOQiyXVS97DG0GaJqhgLGK9iKli3sH5F2Y_yIJEd1B20IbSz6P4vvvdVd9Ztrzd8tbXctlea6zXWpeeWFxvNpiwfk5XVbtPP-87_ci7lpvNZZ8Vt1Fe8Uq5YzDqy2V2RpZps9l2nIltuT5bmPd9I5ZlyvpzN-oC2byyv0Wn3S3OdfmMven6P7vQ91-012nXZrjfdUi7rtFxPVqUn191e30eV8gcDM4tz_wF3arpgwAMAAA?wid=900",
+    "standard": "https://mediaservice.audi.com/media/fast/v3_x2Tb2hbVRjGT39ZVk1vcnszepcbL4nkJrFU4m7-tLXTqJ1aBoortKsf_JDeJLfp3fKP5KaLVuanwb4M_CA6GSJCGTjHHAyHbjIcBRF0glNRBsIUPyhUBlWqQwRv9uXhvOd9nvc97znPOf-H8Pc6gpcOnP9z7z-771u8jRD9thC-TeF3e51ya0gIMU_AaVg1e9-Rtl0Lbm9v701aUxm772astfa-nJmbzlhTdafRyswenpzJZgrzZsaq12Ux7ImFf1Ci4cHQKx7s_t6DXX1xDweZrwbw0SDmuM9j973mBwc6EQr1OvW21bEajxxzqu6qMj49Xc7bZjmbL9uFbK5aNR8tTFemynmrYOWzK_lKxdtcqU5PhT3158JXtXvC3yxUzKwYXmnmrNzLptg1OC4JQSzG2OuoC6gXUS-hgfY40QmiTxN9g-g5oh8TzxA_R_wq8W9J3CLxF8YQxhGMO6SDpJ8h3Uc8RUAicILANaQOskpknciH6E30MvopJhzij5F8i-TXpHYQkyifEt7D2FnULKrXroauoY-jHyTpIzlB8hapiwSGCWwgPYT0BKECyjpqDO0o2pdoO0S3MIZJyiQTJMskN0jlGXmWkR2kK4QjhOdQzxK8QPATgpcJ3kXZj1JCsVA2Ub4hnCY8SfgQ4WNoV9FfQH8VfZPxh4n9ROxvYv8S-4-4n_goiS9I3MGIYryJ4WJcI7lEClJhUhqpQ6RuI20QfI_gJYK_IzeRzzB6mFHvumaIdImcYWIZ7X2iLxK9TPQKepXYdWKb-G5gfIakIP_I2JOMraKeRL1OJEzkBKllUm-TuuFZEzGM6HP_FoHnCCwQaBD4lZFlRtYZ-QVJQvLmPUXwO0JBQjqh15BnkReRTyK_izqH9g7Rn3mgjf4B-k3i-4kvEV8jcRdjHGWOsIy2iHYcXcK4ifEb0m6kBwltIW-h-FFOo3pv8YNnstN2c83ptJoNu-kW5zvOmuXapSWnXrdKB6zK0Xbdi7vpe-4tZmdyZnrVdmqrbjFbKJhpq95etYpup2enK1bD7ljFBbdXdVql2VKuZJoeoel9O9dpNbvF-VbXGayeH8jTXde2O06zZjVrdbuYNdMN27Wqlmut2Z2uxyrm9vhml-b_B576nHreAwAA?wid=900"
+   },
+   "farben": [
+    {
+     "id": "F14 Z9Z9",
+     "code": "Z9Z9",
+     "name": "Arkonaweiß",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3ddd6d72-e608-4057-939a-d00dcf3c7b99.jpg",
+     "serie": false,
+     "plus": [
+      "Z9Z9",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 Z9A2",
+     "code": "Z9A2",
+     "name": "Arkonaweiß Brillantschwarz",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3ddd6d72-e608-4057-939a-d00dcf3c7b99.jpg",
+     "serie": false,
+     "plus": [
+      "Z9A2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 9W9W",
+     "code": "9W9W",
+     "name": "Ascariblau Metallic",
+     "preis": "1.800,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ee20546b-1532-44be-9025-d90c42622aca.jpg",
+     "serie": false,
+     "plus": [
+      "9W9W",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 5U5U",
+     "code": "5U5U",
+     "name": "Firmamentblau Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//257139bb-2967-40b6-93f9-1e39240b0a2a.jpg",
+     "serie": false,
+     "plus": [
+      "5U5U",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 2Y2Y",
+     "code": "2Y2Y",
+     "name": "Gletscherweiß Metallic",
+     "preis": "1.080,00 EUR",
+     "img": null,
+     "serie": false,
+     "plus": [
+      "2Y2Y",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 S5S5",
+     "code": "S5S5",
+     "name": "Grenadinerot Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//0eb88595-ab8f-4d8c-a705-5c457a42c6d9.jpg",
+     "serie": false,
+     "plus": [
+      "S5S5",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 9E9E",
+     "code": "9E9E",
+     "name": "Madeirabraun Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3471bd42-ea26-4043-9bb7-061681065420.jpg",
+     "serie": false,
+     "plus": [
+      "9E9E",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 S8S8",
+     "code": "S8S8",
+     "name": "Mitternachtsgrün Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6e9a5f6c-f8e2-4cc1-8f08-02dbf17ab60b.jpg",
+     "serie": false,
+     "plus": [
+      "S8S8",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 0E0E",
+     "code": "0E0E",
+     "name": "Mythosschwarz Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//695a21bf-8f98-4f5e-a4c4-d17813955f5e.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "F14 9WA2",
+     "code": "9WA2",
+     "name": "Ascariblau Metallic Brillantschwarz",
+     "preis": "1.800,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ee20546b-1532-44be-9025-d90c42622aca.jpg",
+     "serie": false,
+     "plus": [
+      "9WA2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 5UA2",
+     "code": "5UA2",
+     "name": "Firmamentblau Metallic Brillantschwarz",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//257139bb-2967-40b6-93f9-1e39240b0a2a.jpg",
+     "serie": false,
+     "plus": [
+      "5UA2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 2YA2",
+     "code": "2YA2",
+     "name": "Gletscherweiß Metallic Brillantschwarz",
+     "preis": "1.080,00 EUR",
+     "img": null,
+     "serie": false,
+     "plus": [
+      "2YA2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 S5A2",
+     "code": "S5A2",
+     "name": "Grenadinerot Metallic Brillantschwarz",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//443ee7d1-34e3-4f18-8293-89addb34ffa6.jpg",
+     "serie": false,
+     "plus": [
+      "S5A2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 9EA2",
+     "code": "9EA2",
+     "name": "Madeirabraun Metallic Brillantschwarz",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3471bd42-ea26-4043-9bb7-061681065420.jpg",
+     "serie": false,
+     "plus": [
+      "9EA2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 S8A2",
+     "code": "S8A2",
+     "name": "Mitternachtsgrün Metallic Brillantschwarz",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6e9a5f6c-f8e2-4cc1-8f08-02dbf17ab60b.jpg",
+     "serie": false,
+     "plus": [
+      "S8A2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 6Y6Y",
+     "code": "6Y6Y",
+     "name": "Daytonagrau Perleffekt",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//fb337f66-3cd0-4688-9fb3-abe81404b55e.jpg",
+     "serie": false,
+     "plus": [
+      "6Y6Y",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ]
+    },
+    {
+     "id": "F14 6YA2",
+     "code": "6YA2",
+     "name": "Daytonagrau Perleffekt Brillantschwarz",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//fb337f66-3cd0-4688-9fb3-abe81404b55e.jpg",
+     "serie": false,
+     "plus": [
+      "6YA2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    },
+    {
+     "id": "F14 Q0Q0",
+     "code": "Q0Q0",
+     "name": "Individuallackierungen Audi exclusive",
+     "preis": "5.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e21a7b29-54b4-45a5-a0b1-82299fc4e705.jpg",
+     "serie": false,
+     "plus": [
+      "Q0Q0",
+      "3FA"
+     ],
+     "minus": [
+      "0E0E",
+      "3FP"
+     ],
+     "exklusiv": [
+      {
+       "code": "Q0Q0:AEEXC138",
+       "ae": "AEEXC138",
+       "pr": "LC_PR_AEEXC138",
+       "name": "Granatrot Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC138.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC089",
+       "ae": "AEEXC089",
+       "pr": "LC_PR_AEEXC089",
+       "name": "Sevillarot Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC089.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC015",
+       "ae": "AEEXC015",
+       "pr": "LC_PR_AEEXC015",
+       "name": "Shirazrot Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC015.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC063",
+       "ae": "AEEXC063",
+       "pr": "LC_PR_AEEXC063",
+       "name": "Merlin Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC063.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC062",
+       "ae": "AEEXC062",
+       "pr": "LC_PR_AEEXC062",
+       "name": "Samtviolett Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC062.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC080",
+       "ae": "AEEXC080",
+       "pr": "LC_PR_AEEXC080",
+       "name": "Kumulusblau Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC080.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC034",
+       "ae": "AEEXC034",
+       "pr": "LC_PR_AEEXC034",
+       "name": "Sepangblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC034.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC032",
+       "ae": "AEEXC032",
+       "pr": "LC_PR_AEEXC032",
+       "name": "Nogaroblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC032.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC109",
+       "ae": "AEEXC109",
+       "pr": "LC_PR_AEEXC109",
+       "name": "Ascariblau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC109.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC038",
+       "ae": "AEEXC038",
+       "pr": "LC_PR_AEEXC038",
+       "name": "Nachtblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC038.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC139",
+       "ae": "AEEXC139",
+       "pr": "LC_PR_AEEXC139",
+       "name": "Morgentaugrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC139.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC140",
+       "ae": "AEEXC140",
+       "pr": "LC_PR_AEEXC140",
+       "name": "Avocadogrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC140.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC027",
+       "ae": "AEEXC027",
+       "pr": "LC_PR_AEEXC027",
+       "name": "Goodwoodgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC027.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC099",
+       "ae": "AEEXC099",
+       "pr": "LC_PR_AEEXC099",
+       "name": "Oakgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC099.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC028",
+       "ae": "AEEXC028",
+       "pr": "LC_PR_AEEXC028",
+       "name": "Tiefgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC028.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC145",
+       "ae": "AEEXC145",
+       "pr": "LC_PR_AEEXC145",
+       "name": "Taktikgrün Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC145.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC104",
+       "ae": "AEEXC104",
+       "pr": "LC_PR_AEEXC104",
+       "name": "Sohobraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC104.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC101",
+       "ae": "AEEXC101",
+       "pr": "LC_PR_AEEXC101",
+       "name": "Teakbraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC101.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC058",
+       "ae": "AEEXC058",
+       "pr": "LC_PR_AEEXC058",
+       "name": "Ipanemabraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC058.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC042",
+       "ae": "AEEXC042",
+       "pr": "LC_PR_AEEXC042",
+       "name": "Sandbeige Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC042.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC079",
+       "ae": "AEEXC079",
+       "pr": "LC_PR_AEEXC079",
+       "name": "Pfeilgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC079.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC085",
+       "ae": "AEEXC085",
+       "pr": "LC_PR_AEEXC085",
+       "name": "Nardograu Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC085.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC086",
+       "ae": "AEEXC086",
+       "pr": "LC_PR_AEEXC086",
+       "name": "Quantumgrau Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC086.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC071",
+       "ae": "AEEXC071",
+       "pr": "LC_PR_AEEXC071",
+       "name": "Nimbusgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC071.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC083",
+       "ae": "AEEXC083",
+       "pr": "LC_PR_AEEXC083",
+       "name": "Vesuvgrau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC083.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC081",
+       "ae": "AEEXC081",
+       "pr": "LC_PR_AEEXC081",
+       "name": "Havannaschwarz Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC081.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC067",
+       "ae": "AEEXC067",
+       "pr": "LC_PR_AEEXC067",
+       "name": "Pantherschwarz Kristalleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC067.jpeg"
+      }
+     ]
+    },
+    {
+     "id": "F14 Q0A2",
+     "code": "Q0A2",
+     "name": "Individuallackierungen Audi exclusive Brillantschwarz",
+     "preis": "5.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e21a7b29-54b4-45a5-a0b1-82299fc4e705.jpg",
+     "serie": false,
+     "plus": [
+      "Q0A2",
+      "6H4"
+     ],
+     "minus": [
+      "0E0E",
+      "6H0"
+     ]
+    }
+   ],
+   "felgen": [
+    {
+     "id": "MRADCZ3",
+     "code": "CZ3",
+     "name": "Räder, 5-Arm, platingrau, 8,5Jx19, Reifen 245/45 R19",
+     "preis": "-,-- EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//c6b28991-d02b-477a-8664-c5fcdcc4244c.jpg",
+     "serie": false,
+     "plus": [
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "CD4",
+      "HH1"
+     ]
+    },
+    {
+     "id": "MRAD60S",
+     "code": "60S",
+     "name": "Räder Audi Sport, 5-Arm, grau seidenmatt, glanzgedreht, 8,5Jx21, Reifen 255/35 R21",
+     "preis": "2.540,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6d157ee2-00ba-44bf-8742-d9c45d587f7b.jpg",
+     "serie": false,
+     "plus": [
+      "60S",
+      "HU2"
+     ],
+     "minus": [
+      "CD4",
+      "HH1"
+     ]
+    },
+    {
+     "id": "MRADC6Z",
+     "code": "C6Z",
+     "name": "Räder Audi Sport, 5-Arm-Peak, schwarz metallic, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.690,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//5012a624-a35b-48b1-9ab4-d56b88dddabe.jpg",
+     "serie": false,
+     "plus": [
+      "C6Z"
+     ],
+     "minus": [
+      "CD4"
+     ]
+    },
+    {
+     "id": "MRADCD4",
+     "code": "CD4",
+     "name": "Räder Audi Sport, 5-Doppel-V-Speichen, schwarz metallic, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.690,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//dd95c3f8-d139-448e-9dae-dedf2bc5010a.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "MRAD60T",
+     "code": "60T",
+     "name": "Räder Audi Sport, Vielspeichen-Twist, schwarz metallic, 8,5Jx21, Reifen 255/35 R21",
+     "preis": "2.440,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//90b28e7e-e177-4ca1-aa02-30b9eaf579b0.jpg",
+     "serie": false,
+     "plus": [
+      "60T",
+      "HU2"
+     ],
+     "minus": [
+      "CD4",
+      "HH1"
+     ]
+    },
+    {
+     "id": "MRAD60X",
+     "code": "60X",
+     "name": "Räder Audi Sport, Vielspeichen-Twist, schwarz metallic, glanzgedreht, 8,5Jx21, Reifen 255/35 R21",
+     "preis": "3.390,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//1c620bd5-a8ce-4d93-945f-4ac0492b8923.jpg",
+     "serie": false,
+     "plus": [
+      "60X",
+      "HU2"
+     ],
+     "minus": [
+      "CD4",
+      "HH1"
+     ]
+    },
+    {
+     "id": "MRAD40W",
+     "code": "40W",
+     "name": "Räder, 10-Speichen-Aero, schwarz, glanzgedreht, 8,5Jx19, Reifen 245/45 R19",
+     "preis": "300,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e2045c72-aa39-42c2-bb6e-a25110e6d3e0.jpg",
+     "serie": false,
+     "plus": [
+      "40W",
+      "H2X"
+     ],
+     "minus": [
+      "CD4",
+      "HH1"
+     ]
+    },
+    {
+     "id": "MRAD46T",
+     "code": "46T",
+     "name": "Räder, 10-Speichen-Twist, graphitgrau, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//029b0419-aa52-48be-9cc3-bdaaf3c8bdf5.jpg",
+     "serie": false,
+     "plus": [
+      "46T"
+     ],
+     "minus": [
+      "CD4"
+     ]
+    },
+    {
+     "id": "MRADC6N",
+     "code": "C6N",
+     "name": "Räder, 5-Arm, graphitgrau, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.690,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6ecb8215-2142-4613-9341-702c13efb97c.jpg",
+     "serie": false,
+     "plus": [
+      "C6N"
+     ],
+     "minus": [
+      "CD4"
+     ]
+    },
+    {
+     "id": "MRADC7G",
+     "code": "C7G",
+     "name": "Räder, 5-Doppelspeichen, graphitgrau, glanzgedreht, 8,5Jx19, Reifen 245/45 R19",
+     "preis": "200,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6e3870d5-ddd7-492e-a60d-2f3084bec28b.jpg",
+     "serie": false,
+     "plus": [
+      "C7G",
+      "H2X"
+     ],
+     "minus": [
+      "CD4",
+      "HH1"
+     ]
+    },
+    {
+     "id": "MRADC4Y",
+     "code": "C4Y",
+     "name": "Räder, Vielspeichen, graphitgrau, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//447a8327-e947-48a0-8ba0-903c6082058f.jpg",
+     "serie": false,
+     "plus": [
+      "C4Y"
+     ],
+     "minus": [
+      "CD4"
+     ]
+    }
+   ]
+  },
+  {
+   "carlineId": "51087\\2027",
+   "modelId": "FN5A5Y-51087\\2027",
+   "name": "Audi A6 Avant TFSI quattro 270 kW S tronic",
+   "aveString": "51087,FN5A5Y,2027,L5L5,QM,9ZV,2EB,0TD,6NJ,F0A,6I3,0RZ,4A3,GV0,IU6,A1E,5P1,73A,0M2,3L3,0Y1,2ZQ,1VH,9TA,1D0,3FA,3GD,G1D,QV3,4KC,J2D,FZ1,KS0,0FA,6A0,GJ0,9AK,2WA,VC0,0LW,3A2,2Z7,2F1,GH4,0K4,0UA,9VD,4D0,4L2,EW0,GW0,NJ0,2H9,1SA,V6G,95U,L0L,5J1,76A,7HA,K8D,C2R,N2M,6Y2,QI6,EA0,6E1,5L0,8Y1,QQ0,B0A,7AA,JE3,4K5,7K3,4VN,6H0,0KE,9NX,8T3,UE8,VF0,1G8,1BA,1X1,U5A,4ZB,6JD,3Y0,8J3,1A2,9X0,FK0,FB4,1Z0,8X7,98K,9B0,1LT,2KR,99H,LT2,A9F,5ZF,EM3,D5A,FT1,31B,GP0,7E0,GS0,04A,GA0,9PA,1T9,KA2,5IY,4UF,3CX,6F0,5JA,FM8,1PA,NI1,1EX,B01,5C0,6FA,QK1,IX1,1J0,8VM,AI0,JH0,AQ0,IW4,E0A,7Y0,9M0,QR9,GZ0,7M1,NY0,AI8,GM4,I54,98F,GB0,FP1,JX1,AV1,ES0,9G8,0VC,2C5,FU0,8IT,20A,9S9,7W0,EV0,FQ0,Q1A,NW0,3S1,TH9,98A,9I5,4G3,7P0,6XD,5TG,2K5,5K7,8Z5,ER1,4E7,0P0,9JA,6C2,QL1,99B,FC0,99K,1I0,A51,IT3,5F1,2V5,8G1,0N1,98R,4GQ,FA0,Q8A,QJ1",
+   "verbrauch": [
+    "Kraftstoffverbrauch (kombiniert): 8,3 - 6,7 l/100 km",
+    "CO₂-Emissionen (kombiniert): 188 - 153 g/km",
+    "CO₂-Klasse: G-E"
+   ],
+   "farben": [
+    {
+     "id": "F14 Z9Z9",
+     "code": "Z9Z9",
+     "name": "Arkonaweiß",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3ddd6d72-e608-4057-939a-d00dcf3c7b99.jpg",
+     "serie": false,
+     "plus": [
+      "Z9Z9"
+     ],
+     "minus": [
+      "L5L5"
+     ]
+    },
+    {
+     "id": "F14 9W9W",
+     "code": "9W9W",
+     "name": "Ascariblau Metallic",
+     "preis": "1.800,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ee20546b-1532-44be-9025-d90c42622aca.jpg",
+     "serie": false,
+     "plus": [
+      "9W9W",
+      "PZF",
+      "FM7",
+      "2K7",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "FM8",
+      "I54",
+      "2K5"
+     ]
+    },
+    {
+     "id": "F14 5U5U",
+     "code": "5U5U",
+     "name": "Firmamentblau Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//257139bb-2967-40b6-93f9-1e39240b0a2a.jpg",
+     "serie": false,
+     "plus": [
+      "5U5U",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 L5L5",
+     "code": "L5L5",
+     "name": "Florettsilber Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//c1e242bd-dc1c-4fe5-a257-d761760f5553.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "F14 2Y2Y",
+     "code": "2Y2Y",
+     "name": "Gletscherweiß Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//efcea16c-f1a4-4533-8c46-340fe2fa8cbf.jpg",
+     "serie": false,
+     "plus": [
+      "2Y2Y",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 S5S5",
+     "code": "S5S5",
+     "name": "Grenadinerot Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//0eb88595-ab8f-4d8c-a705-5c457a42c6d9.jpg",
+     "serie": false,
+     "plus": [
+      "S5S5",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 9E9E",
+     "code": "9E9E",
+     "name": "Madeirabraun Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//3471bd42-ea26-4043-9bb7-061681065420.jpg",
+     "serie": false,
+     "plus": [
+      "9E9E",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 S8S8",
+     "code": "S8S8",
+     "name": "Mitternachtsgrün Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//6e9a5f6c-f8e2-4cc1-8f08-02dbf17ab60b.jpg",
+     "serie": false,
+     "plus": [
+      "S8S8",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 0E0E",
+     "code": "0E0E",
+     "name": "Mythosschwarz Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//695a21bf-8f98-4f5e-a4c4-d17813955f5e.jpg",
+     "serie": false,
+     "plus": [
+      "0E0E",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 R8R8",
+     "code": "R8R8",
+     "name": "Plateaugrau Metallic",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//de8d4fd8-42cb-4828-8e78-e43229fbe73e.jpg",
+     "serie": false,
+     "plus": [
+      "R8R8",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "F14 6Y6Y",
+     "code": "6Y6Y",
+     "name": "Daytonagrau Perleffekt",
+     "preis": "1.080,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//fb337f66-3cd0-4688-9fb3-abe81404b55e.jpg",
+     "serie": false,
+     "plus": [
+      "6Y6Y",
+      "PZF",
+      "FM7",
+      "2K7",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "FM8",
+      "I54",
+      "2K5"
+     ]
+    },
+    {
+     "id": "F14 Q0Q0",
+     "code": "Q0Q0",
+     "name": "Individuallackierungen Audi exclusive",
+     "preis": "5.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e21a7b29-54b4-45a5-a0b1-82299fc4e705.jpg",
+     "serie": false,
+     "plus": [
+      "Q0Q0",
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "L5L5",
+      "C2R",
+      "I54"
+     ],
+     "exklusiv": [
+      {
+       "code": "Q0Q0:AEEXC138",
+       "ae": "AEEXC138",
+       "pr": "LC_PR_AEEXC138",
+       "name": "Granatrot Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC138.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC089",
+       "ae": "AEEXC089",
+       "pr": "LC_PR_AEEXC089",
+       "name": "Sevillarot Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC089.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC015",
+       "ae": "AEEXC015",
+       "pr": "LC_PR_AEEXC015",
+       "name": "Shirazrot Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC015.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC063",
+       "ae": "AEEXC063",
+       "pr": "LC_PR_AEEXC063",
+       "name": "Merlin Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC063.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC062",
+       "ae": "AEEXC062",
+       "pr": "LC_PR_AEEXC062",
+       "name": "Samtviolett Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC062.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC080",
+       "ae": "AEEXC080",
+       "pr": "LC_PR_AEEXC080",
+       "name": "Kumulusblau Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC080.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC034",
+       "ae": "AEEXC034",
+       "pr": "LC_PR_AEEXC034",
+       "name": "Sepangblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC034.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC032",
+       "ae": "AEEXC032",
+       "pr": "LC_PR_AEEXC032",
+       "name": "Nogaroblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC032.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC109",
+       "ae": "AEEXC109",
+       "pr": "LC_PR_AEEXC109",
+       "name": "Ascariblau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC109.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC038",
+       "ae": "AEEXC038",
+       "pr": "LC_PR_AEEXC038",
+       "name": "Nachtblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC038.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC139",
+       "ae": "AEEXC139",
+       "pr": "LC_PR_AEEXC139",
+       "name": "Morgentaugrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC139.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC140",
+       "ae": "AEEXC140",
+       "pr": "LC_PR_AEEXC140",
+       "name": "Avocadogrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC140.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC027",
+       "ae": "AEEXC027",
+       "pr": "LC_PR_AEEXC027",
+       "name": "Goodwoodgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC027.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC099",
+       "ae": "AEEXC099",
+       "pr": "LC_PR_AEEXC099",
+       "name": "Oakgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC099.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC028",
+       "ae": "AEEXC028",
+       "pr": "LC_PR_AEEXC028",
+       "name": "Tiefgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC028.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC145",
+       "ae": "AEEXC145",
+       "pr": "LC_PR_AEEXC145",
+       "name": "Taktikgrün Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC145.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC104",
+       "ae": "AEEXC104",
+       "pr": "LC_PR_AEEXC104",
+       "name": "Sohobraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC104.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC101",
+       "ae": "AEEXC101",
+       "pr": "LC_PR_AEEXC101",
+       "name": "Teakbraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC101.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC058",
+       "ae": "AEEXC058",
+       "pr": "LC_PR_AEEXC058",
+       "name": "Ipanemabraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC058.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC042",
+       "ae": "AEEXC042",
+       "pr": "LC_PR_AEEXC042",
+       "name": "Sandbeige Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC042.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC079",
+       "ae": "AEEXC079",
+       "pr": "LC_PR_AEEXC079",
+       "name": "Pfeilgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC079.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC085",
+       "ae": "AEEXC085",
+       "pr": "LC_PR_AEEXC085",
+       "name": "Nardograu Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC085.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC086",
+       "ae": "AEEXC086",
+       "pr": "LC_PR_AEEXC086",
+       "name": "Quantumgrau Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC086.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC071",
+       "ae": "AEEXC071",
+       "pr": "LC_PR_AEEXC071",
+       "name": "Nimbusgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC071.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC083",
+       "ae": "AEEXC083",
+       "pr": "LC_PR_AEEXC083",
+       "name": "Vesuvgrau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC083.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC081",
+       "ae": "AEEXC081",
+       "pr": "LC_PR_AEEXC081",
+       "name": "Havannaschwarz Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC081.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC067",
+       "ae": "AEEXC067",
+       "pr": "LC_PR_AEEXC067",
+       "name": "Pantherschwarz Kristalleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC067.jpeg"
+      }
+     ]
+    }
+   ],
+   "felgen": [
+    {
+     "id": "MRADC2R",
+     "code": "C2R",
+     "name": "Räder, 5-Doppelspeichen, 8,0Jx18, Reifen 225/55 R18",
+     "preis": "-,-- EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//b45125ad-9234-4067-a412-c14981f205e1.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "MRAD60S",
+     "code": "60S",
+     "name": "Räder Audi Sport, 5-Arm, grau seidenmatt, glanzgedreht, 8,5Jx21, Reifen 255/35 R21",
+     "preis": "3.390,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//a135e03d-f80a-414b-92c2-79fba3add6de.jpg",
+     "serie": false,
+     "plus": [
+      "60S",
+      "HU2"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRADC6Z",
+     "code": "C6Z",
+     "name": "Räder Audi Sport, 5-Arm-Peak, schwarz metallic, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "2.540,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e02949a4-6b9b-4498-9832-0c406a9ae135.jpg",
+     "serie": false,
+     "plus": [
+      "C6Z",
+      "HH1"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRADCD4",
+     "code": "CD4",
+     "name": "Räder Audi Sport, 5-Doppel-V-Speichen, schwarz metallic, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "2.540,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//54d5f213-85ad-4a38-adeb-3528636bd50b.jpg",
+     "serie": false,
+     "plus": [
+      "CD4",
+      "HH1"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRAD60T",
+     "code": "60T",
+     "name": "Räder Audi Sport, Vielspeichen-Twist, schwarz metallic, 8,5Jx21, Reifen 255/35 R21",
+     "preis": "3.290,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//618584ba-d0c2-4f94-9900-15ced80c2ffb.jpg",
+     "serie": false,
+     "plus": [
+      "60T",
+      "HU2"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRAD60X",
+     "code": "60X",
+     "name": "Räder Audi Sport, Vielspeichen-Twist, schwarz metallic, glanzgedreht, 8,5Jx21, Reifen 255/35 R21",
+     "preis": "3.390,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//5a882fc2-f402-4db0-aacc-32a87edc2632.jpg",
+     "serie": false,
+     "plus": [
+      "60X",
+      "HU2"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRAD40W",
+     "code": "40W",
+     "name": "Räder, 10-Speichen-Aero, schwarz, glanzgedreht, 8,5Jx19, Reifen 245/45 R19",
+     "preis": "1.150,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//67c0ea8c-de9a-4e77-82d1-a4f54bbac82e.jpg",
+     "serie": false,
+     "plus": [
+      "40W",
+      "H2X"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRAD46T",
+     "code": "46T",
+     "name": "Räder, 10-Speichen-Twist, graphitgrau, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//84f64a45-c372-4007-bbeb-5a26fd2cc81b.jpg",
+     "serie": false,
+     "plus": [
+      "46T",
+      "HH1"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRADC6N",
+     "code": "C6N",
+     "name": "Räder, 5-Arm, graphitgrau, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "2.540,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//37643821-ac29-45f3-99f1-f0090f37c387.jpg",
+     "serie": false,
+     "plus": [
+      "C6N",
+      "HH1"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRADCZ3",
+     "code": "CZ3",
+     "name": "Räder, 5-Arm, platingrau, 8,5Jx19, Reifen 245/45 R19",
+     "preis": "850,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//5d49f306-433c-4b3f-9587-8f228498565e.jpg",
+     "serie": false,
+     "plus": [
+      "CZ3",
+      "H2X"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRAD40Y",
+     "code": "40Y",
+     "name": "Räder, 5-Arm-Aero, schwarz, glanzgedreht, 8,0Jx18, Reifen 225/55 R18",
+     "preis": "300,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//d284c422-8eba-4a89-9ca1-489bfeb73129.jpg",
+     "serie": false,
+     "plus": [
+      "40Y"
+     ],
+     "minus": [
+      "C2R"
+     ]
+    },
+    {
+     "id": "MRADC7G",
+     "code": "C7G",
+     "name": "Räder, 5-Doppelspeichen, graphitgrau, glanzgedreht, 8,5Jx19, Reifen 245/45 R19",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e07fb552-5553-481d-ae6a-93b07536a1ae.jpg",
+     "serie": false,
+     "plus": [
+      "C7G",
+      "H2X"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    },
+    {
+     "id": "MRADC4Y",
+     "code": "C4Y",
+     "name": "Räder, Vielspeichen, graphitgrau, glanzgedreht, 8,5Jx20, Reifen 255/40 R20",
+     "preis": "1.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//359f4850-2b0d-4fad-aaf6-a2fc3cb9682b.jpg",
+     "serie": false,
+     "plus": [
+      "C4Y",
+      "HH1"
+     ],
+     "minus": [
+      "C2R",
+      "I54"
+     ]
+    }
+   ]
+  },
+  {
+   "carlineId": "51557\\2027",
+   "modelId": "4MT0P3-51557\\2027",
+   "name": "Audi Q8 SUV S line business e-hybrid quattro 360 kW tiptronic",
+   "aveString": "51557,4MT0P3,2027,Q0Q0,EI,VL0,YOM,PBY,JX1,QR9,7X5,6I6,7W3,QK1,FT1,7Y1,8T5,KA6,PV3,3L4,PXB,8IZ,8G5,8X1,6W6,9ZE,1KD,0TD,6NQ,F0A,0RZ,4A3,GV0,IU4,A1E,73A,0M1,0Y1,1XP,1Y6,1VH,9TF,1D0,3FU,3GM,G1G,QV3,4KC,J0P,FZ1,KS0,6V1,0FA,GJ0,9AU,2WA,6A0,5XC,VC0,0LW,3B3,0K3,2Z7,2F0,GH1,9VD,4D0,4L6,EW0,NJ0,2H9,1SA,L0L,5J1,76H,QZ7,3NE,7HP,6SS,C4I,N5K,K5A,NT0,6Y2,QI6,6E6,5L0,8Y1,QQ1,B0A,7G0,V0A,EA0,7AA,JE3,EH0,4I3,7K1,4VN,9NX,UF7,VF1,1G8,3M3,2MA,U5A,4ZP,3Y0,FY4,6K9,1A2,1S2,FK0,1Z2,6U0,9B0,1IA,2KR,A8S,5ZF,EM3,D72,GP1,7E0,GS5,04H,GA1,9PA,1T3,9R0,FM0,1TR,4UF,3CX,6F7,1PA,NI1,1EX,B01,5C0,6FM,IX1,2D0,8SC,3G0,AQ0,IW4,E0A,9M0,6TS,0E2,GZ0,VT5,GM4,85X,GB1,FP1,AV1,2G1,ES3,8GZ,A00,0VC,2C5,20Q,9S8,EV0,VH0,2P2,Q1D,FQ0,3S0,T9I,8K4,UH2,7P1,6XL,5MI,2K7,5K7,8Z5,ER1,4E7,0P9,9JA,4X3,7L7,QL5,1P0,7A0,KK3,5SL,3U7,1I0,A51,IT3,5D1,2V5,0N1,4GF,FA0",
+   "verbrauch": [
+    "Kraftstoffverbrauch (gewichtet kombiniert): 4,4 - 3,8 l/100 km",
+    "Stromverbrauch (gewichtet kombiniert): 19,7 - 18,9 kWh/100 km",
+    "CO₂-Emissionen (kombiniert): 101 - 86 g/km",
+    "CO₂-Klasse: B",
+    "Kraftstoffverbrauch bei entladener Batterie (kombiniert): 10,4 - 9,5 l/100 km",
+    "CO₂-Klasse bei entladener Batterie: G"
+   ],
+   "farben": [
+    {
+     "id": "F14 9W9W",
+     "code": "9W9W",
+     "name": "Ascariblau Metallic",
+     "preis": "1.800,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ee20546b-1532-44be-9025-d90c42622aca.jpg",
+     "serie": false,
+     "plus": [
+      "9W9W"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 W0W0",
+     "code": "W0W0",
+     "name": "Chilirot Metallic",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//fa53754e-bc21-49f0-a7ad-121154ba5ea8.jpg",
+     "serie": false,
+     "plus": [
+      "W0W0"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 2Y2Y",
+     "code": "2Y2Y",
+     "name": "Gletscherweiß Metallic",
+     "preis": "1.050,00 EUR",
+     "img": null,
+     "serie": false,
+     "plus": [
+      "2Y2Y"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 0E0E",
+     "code": "0E0E",
+     "name": "Mythosschwarz Metallic",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//695a21bf-8f98-4f5e-a4c4-d17813955f5e.jpg",
+     "serie": false,
+     "plus": [
+      "0E0E"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 2Z2Z",
+     "code": "2Z2Z",
+     "name": "Sakhirgold Metallic",
+     "preis": "1.800,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//69969a13-de77-458b-9664-9d9969a45763.jpg",
+     "serie": false,
+     "plus": [
+      "2Z2Z"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 F0F0",
+     "code": "F0F0",
+     "name": "Satellitsilber Metallic",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//d19dea8f-4c2a-4505-830c-ceee606bdb85.jpg",
+     "serie": false,
+     "plus": [
+      "F0F0"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 D6D6",
+     "code": "D6D6",
+     "name": "Waitomoblau Metallic",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//bee02e1b-e22f-4778-bc3d-289c9003e05f.jpg",
+     "serie": false,
+     "plus": [
+      "D6D6"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 6Y6Y",
+     "code": "6Y6Y",
+     "name": "Daytonagrau Perleffekt",
+     "preis": "1.050,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//fb337f66-3cd0-4688-9fb3-abe81404b55e.jpg",
+     "serie": false,
+     "plus": [
+      "6Y6Y"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 0Q0Q",
+     "code": "0Q0Q",
+     "name": "Carraraweiß",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//a6427946-8bd4-4e17-82f7-1ce0522cbef3.jpg",
+     "serie": false,
+     "plus": [
+      "0Q0Q"
+     ],
+     "minus": [
+      "Q0Q0"
+     ]
+    },
+    {
+     "id": "F14 Q0Q0",
+     "code": "Q0Q0",
+     "name": "Individuallackierungen Audi exclusive",
+     "preis": "5.900,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//e21a7b29-54b4-45a5-a0b1-82299fc4e705.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": [],
+     "exklusiv": [
+      {
+       "code": "Q0Q0:AEEXC138",
+       "ae": "AEEXC138",
+       "pr": "LC_PR_AEEXC138",
+       "name": "Granatrot Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC138.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC089",
+       "ae": "AEEXC089",
+       "pr": "LC_PR_AEEXC089",
+       "name": "Sevillarot Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC089.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC063",
+       "ae": "AEEXC063",
+       "pr": "LC_PR_AEEXC063",
+       "name": "Merlin Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC063.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC062",
+       "ae": "AEEXC062",
+       "pr": "LC_PR_AEEXC062",
+       "name": "Samtviolett Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC062.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC034",
+       "ae": "AEEXC034",
+       "pr": "LC_PR_AEEXC034",
+       "name": "Sepangblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC034.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC032",
+       "ae": "AEEXC032",
+       "pr": "LC_PR_AEEXC032",
+       "name": "Nogaroblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC032.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC109",
+       "ae": "AEEXC109",
+       "pr": "LC_PR_AEEXC109",
+       "name": "Ascariblau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC109.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC038",
+       "ae": "AEEXC038",
+       "pr": "LC_PR_AEEXC038",
+       "name": "Nachtblau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC038.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC139",
+       "ae": "AEEXC139",
+       "pr": "LC_PR_AEEXC139",
+       "name": "Morgentaugrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC139.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC140",
+       "ae": "AEEXC140",
+       "pr": "LC_PR_AEEXC140",
+       "name": "Avocadogrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC140.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC027",
+       "ae": "AEEXC027",
+       "pr": "LC_PR_AEEXC027",
+       "name": "Goodwoodgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC027.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC028",
+       "ae": "AEEXC028",
+       "pr": "LC_PR_AEEXC028",
+       "name": "Tiefgrün Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC028.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC145",
+       "ae": "AEEXC145",
+       "pr": "LC_PR_AEEXC145",
+       "name": "Taktikgrün Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC145.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC104",
+       "ae": "AEEXC104",
+       "pr": "LC_PR_AEEXC104",
+       "name": "Sohobraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC104.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC101",
+       "ae": "AEEXC101",
+       "pr": "LC_PR_AEEXC101",
+       "name": "Teakbraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC101.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC058",
+       "ae": "AEEXC058",
+       "pr": "LC_PR_AEEXC058",
+       "name": "Ipanemabraun Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC058.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC042",
+       "ae": "AEEXC042",
+       "pr": "LC_PR_AEEXC042",
+       "name": "Sandbeige Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC042.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC079",
+       "ae": "AEEXC079",
+       "pr": "LC_PR_AEEXC079",
+       "name": "Pfeilgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC079.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC085",
+       "ae": "AEEXC085",
+       "pr": "LC_PR_AEEXC085",
+       "name": "Nardograu Uni",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC085.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC071",
+       "ae": "AEEXC071",
+       "pr": "LC_PR_AEEXC071",
+       "name": "Nimbusgrau Perleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC071.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC083",
+       "ae": "AEEXC083",
+       "pr": "LC_PR_AEEXC083",
+       "name": "Vesuvgrau Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC083.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC081",
+       "ae": "AEEXC081",
+       "pr": "LC_PR_AEEXC081",
+       "name": "Havannaschwarz Metallic",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC081.jpeg"
+      },
+      {
+       "code": "Q0Q0:AEEXC067",
+       "ae": "AEEXC067",
+       "pr": "LC_PR_AEEXC067",
+       "name": "Pantherschwarz Kristalleffekt",
+       "img": "https://d2sbkzoafao45f.cloudfront.net/Q0Q0/AEEXC067.jpeg"
+      }
+     ]
+    }
+   ],
+   "felgen": [
+    {
+     "id": "MRADC4I",
+     "code": "C4I",
+     "name": "Räder, 5-Segmentspeichen, graphitgrau, 10,0Jx21, Reifen 285/45 R21",
+     "preis": "-,-- EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//01f5f1f9-d10b-44e0-bc7b-e06a7c66260e.jpg",
+     "serie": true,
+     "plus": [],
+     "minus": []
+    },
+    {
+     "id": "MRAD54J",
+     "code": "54J",
+     "name": "Räder Audi Sport, 10-Speichen-Trapezoid, grau matt, glanzgedreht, 10,0Jx23, Reifen 285/35 R23",
+     "preis": "2.450,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//37b13449-69fb-4d78-97be-1c19b73c2c8b.jpg",
+     "serie": false,
+     "plus": [
+      "54J",
+      "H7J",
+      "SY7",
+      "FQ1"
+     ],
+     "minus": [
+      "C4I",
+      "85X",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRAD58U",
+     "code": "58U",
+     "name": "Räder Audi Sport, 10-Speichen-Trapezoid, schwarz metallic, 10,0Jx23, Reifen 285/35 R23",
+     "preis": "2.390,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ef1d4f9a-1f30-4bb6-88d2-dca0aaed607f.jpg",
+     "serie": false,
+     "plus": [
+      "58U",
+      "H7J",
+      "SY7",
+      "FQ1"
+     ],
+     "minus": [
+      "C4I",
+      "85X",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRADF23",
+     "code": "F23",
+     "name": "Räder Audi Sport, 10-Y-Speichen, schwarz metallic, 10,0Jx22, Reifen 285/40 R22",
+     "preis": "1.690,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//d193406f-269f-44f0-afc9-4543e14a0443.jpg",
+     "serie": false,
+     "plus": [
+      "F23",
+      "H8Q",
+      "SY7",
+      "FQ1"
+     ],
+     "minus": [
+      "C4I",
+      "85X",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRAD53W",
+     "code": "53W",
+     "name": "Räder Audi Sport, 5-Doppelspeichen Modul, Einsätze strukturgrau matt, 10,0Jx22, Reifen 285/40 R22",
+     "preis": "1.750,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ada4a3e6-36d3-43ad-854f-2a75efb016cd.jpg",
+     "serie": false,
+     "plus": [
+      "53W",
+      "H8Q",
+      "SY7",
+      "FQ1"
+     ],
+     "minus": [
+      "C4I",
+      "85X",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRADCX2",
+     "code": "CX2",
+     "name": "Räder Audi Sport, 5-V-Speichen-Stern, anthrazitschwarz, glanzgedreht, 10,0Jx22, Reifen 285/40 R22",
+     "preis": "1.750,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//93f34391-f138-4dd3-99e1-7ff0fd6230f3.jpg",
+     "serie": false,
+     "plus": [
+      "CX2",
+      "H8Q",
+      "SY7",
+      "FQ1"
+     ],
+     "minus": [
+      "C4I",
+      "85X",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRAD60I",
+     "code": "60I",
+     "name": "Räder Audi Sport, Vielspeichen S-Design, schwarz metallic, glanzgedreht, 10,0Jx23, Reifen 285/35 R23",
+     "preis": "2.790,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//8dadbdb8-bda3-4c2e-ac2b-a0677d5008a2.jpg",
+     "serie": false,
+     "plus": [
+      "60I",
+      "H7J",
+      "SY7",
+      "FQ1"
+     ],
+     "minus": [
+      "C4I",
+      "85X",
+      "FQ0"
+     ]
+    },
+    {
+     "id": "MRADC6L",
+     "code": "C6L",
+     "name": "Räder, 5-Arm-Falx, graphitgrau, glanzgedreht, 10,0Jx22, Reifen 285/40 R22",
+     "preis": "1.450,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//4d14b069-ddcc-4da1-82ea-8621b0e9ad0e.jpg",
+     "serie": false,
+     "plus": [
+      "C6L",
+      "H8Q",
+      "SY7"
+     ],
+     "minus": [
+      "C4I",
+      "85X"
+     ]
+    },
+    {
+     "id": "MRADC6K",
+     "code": "C6K",
+     "name": "Räder, 5-Doppelarm, graphitgrau, glanzgedreht, 10,0Jx22, Reifen 285/40 R22",
+     "preis": "1.450,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//1580789d-990f-440c-b8fc-3c136d83b623.jpg",
+     "serie": false,
+     "plus": [
+      "C6K",
+      "H8Q",
+      "SY7"
+     ],
+     "minus": [
+      "C4I",
+      "85X"
+     ]
+    },
+    {
+     "id": "MRADC7F",
+     "code": "C7F",
+     "name": "Räder, 5-V-Speichen S-Design, graphitgrau, glanzgedreht, 10,0Jx21, Reifen 285/45 R21",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//ab8ea2ad-1f4a-4f5d-a606-95a497c53e60.jpg",
+     "serie": false,
+     "plus": [
+      "C7F",
+      "SY7"
+     ],
+     "minus": [
+      "C4I"
+     ]
+    },
+    {
+     "id": "MRADU01",
+     "code": "U01",
+     "name": "Räder, 5-W-Speichen, graphitgrau, glanzgedreht, 10,0Jx21, Reifen 285/45 R21",
+     "preis": "0,00 EUR",
+     "img": "https://mediaservice.audi.com/media/cdb/data//d4fe4bbd-fff9-44a7-87fe-5362421de071.jpg",
+     "serie": false,
+     "plus": [
+      "U01",
+      "SY7"
+     ],
+     "minus": [
+      "C4I"
+     ]
+    }
+   ]
+  }
+ ]
+}
